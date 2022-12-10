@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 用户输入一个数，判断这个数是4的倍数且不是100的倍数，实际上就是判断该数值对4取模等于0但对100取模不等于0
+        let num = prompt('请输入一个整数')
+        num = num || 0
+        console.log(num % 4 === 0 && num % 100 !== 0)
+    </script> 
+</body>
+</html>

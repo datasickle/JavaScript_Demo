@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /** 
+         * 逻辑运算符：
+         *  如果像判断一个数据大于5且小于10，该怎么办？
+         *  错误写法：5 < 数据 < 10
+         * 逻辑运算符用来解决多重条件判断
+         * 
+         * && 逻辑与 并且 符号两边都为true，结果才为true，一假则假
+         * || 逻辑或 或者 符号两边有一个为true就为true，一真则真
+         * !  逻辑非 取反 true变false，flase变true，真变假，假变真
+        **/
+
+        // 逻辑与
+        console.log(true && true) // true
+        console.log(true && false) // false
+
+        // 逻辑或
+        console.log(true || false) // true
+        console.log(false || false) // false
+
+        // 逻辑非
+        console.log(!true) // false
+        console.log(!false) // true
+
+        /**
+         * 短路
+         *  短路只存在于&&和||中，当满足一定条件会让右边代码不执行
+         *  && 左边为false就短路，因为代码从左往右判断，左边的条件已经不为真了，则整体不为真，没必要判断右边的了
+         *  || 左边为true就短路，因为||运算有一个为真整体都为真，所以在左边已经为真的情况下，就没必要判断右边的了
+         **/
+
+         /**
+          * 有5个值是当作false来看的
+          *  false
+          *  数字0 除了0其余的数字都为真
+          *  '' 空串 除了空串其余的字符串都为真
+          *  undefined
+          *  null 
+          **/ 
+ 
+          // 逻辑短路还能如下这么用
+
+          function fun(x, y)
+          {
+            // 由于没有传值过来，那么x和y都是undefiend，为false，逻辑或不短路，则执行或后面的操作，那么就把0赋值给了x和y
+            // 其实这里的或后面的数字就相当于一个默认值，你没给数值，我只好默认用或后面的了
+            x = x || 0
+            y = y || 0
+            // 如果不做上面的操作，那该函数必然返回NaN，如果做了，则该函数返回0，友好一些            
+            x + y
+          }
+
+          fun()// 在这里调用fun函数，但并没有传值过去
+
+    </script>
+</body>
+</html>
