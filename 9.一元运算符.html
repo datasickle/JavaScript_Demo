@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 一元运算符：
+         * 正号：+
+         * 负号：-
+         * 自增：++
+         * 自减：--
+         **/
+
+         // ++ 自增，作用：让变量的值+1 使用场景：常用于计数，于是和循环搭配使用
+        let num = 1
+        ++num
+        console.log(num)
+
+        let age = 1
+        age++
+        console.log(age)
+
+         // -- 自减，作用：让变量的值-1
+         let numA = 1
+         numA--
+         console.log(numA)
+         --numA
+         console.log(numA)
+
+         // 当前置自增和后置自增如果参与运算时就会有区别了
+
+         // 前置自增：++i 先自增再使用
+         let i = 1;
+         // console.log(++i + 2) // i先自己加了1而后再去+2，所以输出4
+
+         // 后置自增：i++ 先使用再自增
+        console.log(i++ +2) // 先使用后自增，i=1 再加2，所以输出3
+        // 而当执行完毕，此时i才会+1，这时候再输出i，i原本是1，自增一个自然输出2
+        console.log(`此时的i是：${i}`) // 2
+
+        let x = 1
+        console.log(i++ + ++i + i) // 等于7，因为i++后，i=2 ，++2后i=3，所以最后是1+3+3=7
+
+    </script>
+</body>
+</html>

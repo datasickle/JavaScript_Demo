@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // typeof 有时候我们需要检测一下数据的类型，那就可以用到typeof了，表示...的类型
+
+        let age = 18
+        let userName = 'John'
+        let flag = true
+        let test
+        let none = null
+        let arr = [1,2,3]
+        let meth = function fun (){}
+
+        console.log(typeof age) // number
+        console.log(typeof userName) // string
+        console.log(typeof flag) // boolean
+        console.log(typeof test) // undefined（只声明，不赋值）
+        console.log(typeof none) // object
+        console.log(typeof arr) // object
+        console.log(typeof meth) // function
+        console.log(typeof age + '11') // number11
+
+        // 可以发现null和数组都是object对象类型的
+    </script>
+</body>
+</html>

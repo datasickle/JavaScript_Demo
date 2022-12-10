@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 为什么要进行类型转换？
+         * JS是弱数据类型语言，JS并不知道变量属于哪种数据类型，只有赋值之后才清楚
+         * 如使用表单、prompt获取过来的数据默认是字符串类型的，此时就不能直接简单的进行加法运算
+         * 
+         * 类型转换有以下两种：
+         * 1. 隐式转换
+         * 2. 显式转换
+         * 
+         **/
+        console.log('10000' + '2000') // 输出：100002000 而不是12000
+
+        //let inputData = prompt('请输入一个数字')
+        //console.log(inputData,`所输入的数字的数据类型为${typeof inputData}`) 
+        // 经过类型检测，会发现从prompt中获得的数据类型是string而非number
+
+        /**
+         * 隐式转换：
+         *  某些运算符被执行时，系统内部自动将数据类型进行转换，称做隐式转换
+         * 规则：
+         *  + 号两边只要有一个是字符串，都会把另一个转成字符串
+         *  除了+以外的算数运算符，比如- * / 等都会把数据转成数字类型22
+         * 
+         * 缺点：
+         *  转换类型不明确，只能靠经验总结
+         * 技巧：
+         *  +号作为正号解析可以转换成number类型
+         **/
+        let myAge = '我的年龄是' + 18
+        console.log(`myAge的类型为：${typeof myAge22}`)
+
+        let age = 1822
+        console.log(+age,`age的类型为${typeof age}`) // 经过正号解析后，age的类型变成了number
+
+        let sub = 18 - '16'
+        console.log(`sub的类型为：${typeof sub}`)
+
+        // * 和 / 与 - 一致，不再进行演示
+
+        /**
+         * 显式转换：
+         *  即开发者自己告诉系统应该转换成什么类型
+         **/ 
+        
+        /* 转换为数字类型：
+            Number(数据)：转换成数字类型，吐过字符串内容里有非数字，转换失败时输出NaN(Not a Number)，NaN也是number类型的数据，代表非数字
+            parseInt(数据)：只保留整数
+            parseFloat(数据)：可以保留小数
+        */
+       let number1 = '18.8'
+       console.log(number1,`number1的数据类型是：${typeof number1}`) // string
+
+       let number1A = Number(number1)
+       console.log(number1A,`number1A的数据类型是：${typeof number1A}`) // number
+
+       let number1B = parseInt(number1)
+       console.log(number1B,`number1B的数据类型是：${typeof number1B}`) // number
+
+       let number1C = parseFloat(number1)
+       console.log(number1C,`number1C的数据类型是：${typeof number1C}`) // number
+
+       let numberAndStr = Number('18abcd')
+       console.log(numberAndStr,`numberAndStr的数据类型是：${typeof numberAndStr}`) // 输出NaN，但NaN的类型也是number
+
+       /* 转换为字符类型：
+            String(数据)
+            变量.toString(进制)
+       */
+
+       let str1 = 18
+       console.log(str1,`str1的数据类型为：${typeof str1}`)
+
+       let str1A = String(str1)
+       console.log(str1A,`str1A的数据类型为：${typeof str1A}`)
+    
+       console.log(str1.toString(10))
+    </script>
+</body>
+</html>

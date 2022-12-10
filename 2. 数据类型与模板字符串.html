@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        /* Js数据类型分为两大类：
+            1. 基本数据类型 number string boolean undefined（只声明，不赋值） null（赋值了，但值为空）
+            2. 引用数据类型 object function array
+        */
+
+        /* ES6语法模板字符串作用：
+            1. 拼接字符串和变量
+            2. 在没有它之前，要拼接变量比较麻烦
+        */
+
+        // 之前
+         let age = 18
+         let str = '我今年' + age + '岁了'
+         console.log(str)
+
+        /* 在ES6中，新增了反引号``，当内容拼接变量时，使用反引号包住，而后用${}包住变量，有点像slf4j中的log.info()拼接方式*/
+        console.log(`我今年${age}岁了`)
+
+        // 可以拼接任何变量，包括数组
+        let arr = [1,2,3,4,5,6,7,'test1','test2']
+        document.write(`数组中的元素是：${arr}，数组长度是：${arr.length}`)
+        // 模板字符串当然也能进行运算
+        let num = 100
+        //alert(num - 1)
+        let userAge = prompt('请输入您年龄')
+        document.write(`您的年龄是：${userAge}`)
+
+    
+    </script>
+   
+</body>
+</html>
