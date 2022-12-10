@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 程序三大流程控制语句
+         * 顺序结构（按顺序执行）
+         * 分支结构（按条件执行）
+         * 循环结构（多次执行）
+         **/
+
+         /**
+          * 分支语句包括：
+          * if分支语句
+          * 三元运算符
+          * switch语句
+          **/ 
+         
+          /**
+           * if 语句
+           * if语句有三种使用：单分支，双分支，多分枝
+           **/
+
+           // 单分支
+           if (true){
+            alert('单分支')
+           }
+
+           // 双分支
+           let num = 3
+           if( num > 5 ){
+            alert('双分支1')
+           }else{
+            alert('双分支2')
+           }
+
+           /**
+            * 计算闰年
+            * 能被4整除但不能被100整除，或者被400整除的年份是闰年，否则都是平年
+            * 需要逻辑运算符
+            **/ 
+           let year = +prompt('请输入年份')
+           if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            alert(`${year}是闰年`)
+           }else{
+            alert(`${year}是平年`)
+           }
+
+           // 多分枝
+           let x = +prompt('请输入一个数字');
+           if(x === 1){
+            alert(`${x}是1`)
+           }else if (x === 2) {
+            alert(`${x}是2`)
+           }else if (x === 10) {
+            alert(`${x}是10`)
+           }
+
+    </script>
+</body>
+</html>
