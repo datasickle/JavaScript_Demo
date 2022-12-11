@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * while循环：重复执行某段代码
+         * 语法：
+         *  while (循环条件) { 
+                要重复执行的代码(循环体)
+         }
+         * 循环三要素：
+         * 1.变量起始值
+         * 2.终止条件，若无，则死循环
+         * 3.变量变化量
+         **/ 
+        let num = parseInt(prompt('请输入一个数字'))
+        let sum = 0;
+        //while (num <= 10) {
+            //document.write(`${num}hello world </br>`)
+           // sum += num
+            //num++
+        //}
+        //document.write(sum)
+        while (num <= 100)
+        {
+            // 数值对2取模等于0的话，就是偶数，是偶数的话，sum+num而后赋值给sum，不是偶数则sum还是sum
+            num % 2 === 0 ? sum += num : sum
+            num++
+        }
+        document.write(sum)
+
+        /**
+         *  循环退出
+         *   循环退出有continue和break
+         *   continue是跳到下个循环
+         *   break是直接结束整个循环
+         **/
+
+         // continue
+         let i = 1
+         while (i <= 6) {
+            if (i === 3) {
+                /*
+                当i等于3时，跳过第三条循环语句，直接到第四条，continue时直接回到while，不执行后面的语句，
+                那么后面的i++也就不执行了所以要加个i++让变量有变化
+                */
+                i++
+                continue
+            }
+            document.write(`这是第${i}个数字`)
+            i++
+         }
+
+         // break是直接结束整个循环
+         let x = 1;
+         while (i <= 6) {
+            if (i === 4)
+            {
+                break
+            }
+            document.write(`这是第${i}个数字`)
+            i++
+         }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 需求：用户输入两个数字，然后在输入+ - * /任何一个，可以计算出结果
+         **/ 
+        let num1 = parseInt(prompt('请输入第一个数字'))
+        let num2 = parseInt(prompt('请输入第二个数字'))
+        let computedSign = prompt('请输入+ - * / 其中的一个运算符')
+        switch (computedSign) {
+            case '+':
+                document.write(`${num1} + ${num2} = ${num1+num2}`)
+                break;
+            case '-':
+                document.write(`${num1} - ${num2} = ${num1-num2}`)
+                break;
+            case '*':
+                document.write(`${num1} * ${num2} = ${num1*num2}`)
+                break;
+            case '/':
+                document.write(`${num1} / ${num2} = ${num1/num2}`)
+                break;
+            default:
+                document.write('输入错误！')
+                break;
+        }
+    </script>
+</body>
+</html>
