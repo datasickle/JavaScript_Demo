@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 需求：打印五行五列的星星
+
+        // 分析，外层循环控制第几行，内部循环控制每行几个（列）
+        let rows = parseInt(prompt('请输入行数：'))
+        let columns = parseInt(prompt('请输入列数：'))
+
+        for(let r = 1; r <= rows; r++)
+        {
+            for(let c = 1; c <= columns; c++)
+            {
+                document.write(`★`)
+            }
+            // 每打印五个就换行
+            document.write(`</br>`)
+        }
+    </script>
+</body>
+</html>

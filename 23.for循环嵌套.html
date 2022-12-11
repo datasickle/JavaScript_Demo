@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * for循环嵌套
+         * 即循环里面套循环
+         **/
+        for (let i = 1; i < 6; i++){
+            for (let j = 1; j < 6; j++){
+                document.write(`♥</br>`)
+            }
+        }
+
+        /**
+         * 第一次循环，i=1,i<6，于是进入循环体，循环体中还有个for循环，只有当循环体中的for循环全部循环完，打印五次后，才会结束第一次循环
+         * 然后开始第二次，第一次循环结束后，j被垃圾回收机制回收，第二次循环开始后，又创建了一个新的j
+         * 往复循环，于是就会打印25颗心
+         **/
+
+         // 口诀：外面循环执行一次，里面循环执行全部
+
+         /**
+          * 循环嵌套-应用
+          * 加入每天记5个单词，3天总共能记多少个单词？
+          * 外部循环记录天数，内部循环记录单词数
+          **/
+         for (let x = 1; x <= 3; x++){
+            document.write(`第${x}天</br>`)
+          for(let y = 1; y <= 5; y++){
+            document.write(`记住了第${y}个单词</br>`)
+          } 
+         }
+    </script>
+</body>
+</html>
