@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 三元运算符本质上是更简单的双分支if语句
+         * 格式如下：
+         *  条件 ？ 满足条件后执行代码 : 不满足条件后执行的代码
+         * 
+         **/
+
+         let num = +prompt('请输入一个数字')
+        // num是不是3？是的话输出等于3，不是的话输出不是3
+         num === 3 ? document.write('您所输入的数字等于3') : document.write('您所输入的数字不是3')
+
+        //  三元运算符取值
+         let num1 = 10
+         let num2 = 20
+         let result = num1 > num2 ? num1 : num2
+         console.log(result)
+    </script>
+</body>
+</html>
