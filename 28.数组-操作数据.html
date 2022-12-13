@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .arr{
+        font-weight: bold;
+        color: red;
+        font-size: large;
+    }
+</style>
+<body>
+    <script>
+        /**
+         * 数组-操作数据：
+         * 即对数组进行基础的 增 删 改 查 方法
+         * 查：arr[index]
+         * 改：arr[index] = 新值
+         * 增：arr.push(新增内容) arr.unshift(新增内容)
+         * 删：arr.pop() arr.shift() arr.splice(操作的小标，删除的个数) 
+         **/
+
+        // 查
+        let arr = ['misaka', 'sakura', 'minato', 'azusa', 'shizuku', 'nanami']
+        document.write(`<span class='arr'>对该数组arr = ['misaka', 'sakura', 'minato', 'azusa', 'shizuku', 'nanami']进行增删改查</span>`)
+        document.write(`<h1>查</h1>`)
+
+        document.write(`--------------------------------通过下标查询数组----------------------------------</br>`)
+        document.write(`${arr[3]} </br>`)
+
+        document.write(`------------------------------for循环遍历查询数组---------------------------------</br>`)
+        for(let i = 0; i< arr.length; i++)
+        {
+            document.write(`${arr[i]} </br>`)
+        }
+
+        document.write(`<h1>改</h1>`)
+        // 改：如果数组中的元素叫minato的话就把她改成mikoto
+        for(let j = 0; j < arr.length; j++)
+        {
+            arr[j] === 'minato' ? arr[j] = 'mikoto' : arr[j] = arr[j]
+        }
+        document.write(`------------------------------修改过后的数组如下---------------------------------</br>`)
+        document.write(`${arr} </br>`)
+
+        document.write(`<h1>增</h1>`)
+        document.write(`-------------------------使用arr.push()往数组末尾新增数据------------------------</br>`)
+        // arr.push()方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度（重点）
+        document.write(`原数组长度：${arr.length} </br>`)
+        document.write(`push在执行的时候会返回一个值，该值就是添加数据后的数组新长度：${arr.push('naruto')} </br>`)
+        document.write(`${arr} </br>`)
+        document.write(`现数组长度：${arr.length} </br>`)
+
+
+        document.write(`------------------------使用arr.unshift()往数组前面新增数据----------------------</br>`)
+        document.write(`原数组长度：${arr.length} </br>`)
+        document.write(`unshift在执行的时候会返回一个值，该值就是添加数据后的数组新长度：${arr.unshift('kiruto')} </br>`)
+        document.write(`${arr} </br>`)
+        document.write(`现数组长度：${arr.length} </br>`)
+
+        document.write(`<h1>删</h1>`)
+        document.write(`---------------------------使用arr.pop()删除数组最后一个数据，并返回被删元素的值-------------------------</br>`)
+        document.write(`这是数组${arr} <br>`)
+        document.write(`被删掉的元素是${arr.pop()} </br>`)
+        document.write(`删除最后一个元素后的数组${arr} </br>`)
+
+        document.write(`--------------------------使用arr.shift()删除数组第一个数据，并返回被删元素的值-------------------------</br>`)
+        document.write(`这是数组${arr} <br>`)
+        document.write(`被删掉的元素是${arr.shift()} </br>`)
+        document.write(`删除第一个元素后的数组${arr} </br>`)
+        document.write(`--------------------------使用arr.splice()自定义删除数组中的数据------------------------</br>`)
+        // arr.splice(start, deleteCount)方法有两个参数，第一个start是起始位置，下标从0开始，即你想从哪儿开始删，第二个deleteCount就是你想删除几个元素
+        document.write(`这是数组${arr} <br>`)
+        // 标识我要从下标为0的数据开始删，总共删两个，包含下标为0的元素
+        document.write(`arr.splice(0,2)被删掉的元素有：${arr.splice(0,2)} </br>`)
+        document.write(`删除指定元素后的数组${arr} </br>`)
+        
+    </script>
+</body>
+</html>
