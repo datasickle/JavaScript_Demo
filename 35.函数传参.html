@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 函数传参：
+         * 语法：
+         *  function 函数名(args1, args2, ..., argsN){
+         *      函数体
+         * }
+         **/
+
+         // 示例
+         function getSum(num1, num2){
+            num1 = num1 || 0
+            num2 = num2 || 0
+            document.write(`${num1} + ${num2} = ${num1+num2} </br>`)
+         }
+
+         getSum(1, 2)
+
+         // 求两个数之间的累加和
+         function getSumFromNumToNum(num1, num2)
+        {
+            let sum = 0
+            if(num1 < num2)
+            {
+                for(let i = num1; i <=num2; i++)
+                {
+                    sum += i
+                }
+                document.write(`${num1}至${num2}的和为${sum} </br>`)  
+            }
+            if(num1 > num2)
+            {
+                for(let i = num2; i <=num1; i++)
+                {
+                    sum += i
+                }
+                document.write(`${num1}至${num2}的和为${sum} </br>`)  
+            }
+            if(num1 === num2)
+            {
+                document.write(`两数相等，请重新输入！`)  
+            }
+            
+        }
+
+        getSumFromNumToNum(100,1)
+    </script>
+</body>
+</html>

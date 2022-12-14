@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 需求：学生的分数是一个数组，计算每个学生的总分
+         * 分析：
+         * 1. 封装一个求和函数
+         * 2. 传递过去的参数是一个数组
+         * 3. 函数内部遍历数组求和
+         **/
+
+         function getScore(arr){
+                let sum = 0
+            arr.forEach(element => {
+                sum += element
+            });
+            document.write(`学生的成绩总分是：${sum} </br>`)
+
+         }
+
+         getScore([99, 10, 100])
+         getScore([100, 10, 100])
+    </script>
+</body>
+</html>
