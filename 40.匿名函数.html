@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**JS中函数分为两大类：
+         * 1.具名函数
+         * function fun(params) {
+            函数体
+         }
+         调用：fun()
+         * 
+         * 2.匿名函数
+         * let fun = function() {}
+         * 我们将匿名函数赋值给一个变量，并和且通过变量名称进行调用，我们将这个称为函数表达式。 
+         * 
+         * 
+         **/
+
+        //  let fun = function(x) {
+        //     document.write(x)
+        //  }
+        //  fun('hello')
+
+         /**
+          * 立即执行函数，无需调用，立即执行。
+          * 多个立即执行函数之间，必须要加分号;
+          * 避免全局变量之间的污染
+          * 语法1：
+          * (function () {console.log()})();
+          * 语法2：
+          * (function () {console.log()} ());
+          **/
+
+          (function (x) {
+            alert(x)
+            })('hello')
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 需求：用户输入读秒，可以自动转换为时分秒
+         * 1. 用户输入总秒数
+         * 2.计算时分秒（封装函数） 里面包含数字补0
+         * 3.打印输出
+         * 
+         * 计算公式：
+         * 小时：h = parseInt(总秒数 / 60 / 60 % 24)
+         * 分钟：m = parseInt(总秒数 / 60 % 60)
+         * 描述：s = parseInt(总秒数 % 60)
+         **/ 
+
+         // 1.用户输入总秒数
+        let seconds = parseInt(prompt('请输入总秒数：'))
+
+         // 2.封装函数
+         function castTimes(seconds) {
+            let h = parseInt(seconds / 60 / 60 % 24)
+            h = h < 10 ? '0' + h : h
+            let m = parseInt(seconds / 60 % 60)
+            if(m < 10)
+            {
+                m = '0' + m
+            }
+            let s = parseInt(seconds % 60)
+            if(s < 10)
+            {
+                s = '0' + s
+            }
+            return `${seconds}秒是${h}小时${m}分钟${s}秒`
+         }
+
+         let str = castTimes(seconds)
+         document.write(str)
+    </script>
+</body>
+</html>
