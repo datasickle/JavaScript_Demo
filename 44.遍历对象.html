@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 遍历对象
+         *      对象没有length属性，无法确定长度
+         *      对象里是无序的键值对，无规律，不想数组里面有规律的下标
+         * 语法：使用forin语句
+         *      for (let k in object) {
+         *          console.log(k)
+         *          console.log(obj[k])
+         *      }
+         **/ 
+
+        let person = {
+            name: 'John',
+            age: 117,
+            gender: 'male',
+            email: 'John117@gmail.com',
+            shot: function(){
+                document('John_117开枪了')
+            }
+        }
+
+        // 对象里有多少属性，就循环多少次，每循环一次就取一个属性及值
+        for(let key in person)
+        {
+            // 直接输出属性名/键
+            console.log(key)
+            // 输出属性值/value
+            /*
+             因为属性名name本质上是'name'，而key === 'name'，所以可以直接person[key]，
+             等价于person['name']，而不是person.key，因为相当于person.'key'*/
+            console.log(person[key])
+        }
+    </script>
+</body>
+</html>

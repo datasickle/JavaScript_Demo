@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    <script>
+        /**
+         * 什么是对象
+         *      对象是JS中的一种数据类型
+         *      可以理解为是一种无序的数据集合
+         *      可以详细地描述某个事物
+         * 对象使用
+         *      对象声明语法
+         *      let 对象名 = {
+         *          属性名: 属性值,
+         *          方法名: 函数
+         *      }
+         *  
+         * 操作对象
+         * 遍历对象
+         * 内置对象 
+         **/
+         let goods = {
+            name: '小米10',
+            num: 100012816024,
+            weight: 0.55,
+            address: '中国大陆'
+         }
+        // 两种获取方式
+         document.write(goods.name)
+         document.write(goods['num'])
+
+         /**
+          * 对象中的方法
+          * 1. 方法是由方法名和函数两部分构成，中间使用:分隔
+          * 2. 多个属性之间使用英文，分隔
+          * 3. 方法是是依附在对象中的函数
+          * 4. 方法名可以使用""或'''，一般情况下胜率额，除非名称雨道特殊符号，如空格、中横线等
+          * 
+          **/  
+         let person = {
+            name: 'andy',
+            age: 18,
+            saySomething: function(x) {
+                document.write(x)
+            }
+         }
+
+         person.saySomething('你在说你🐎呢？')
+        
+    </script>
+</body>
+</html>

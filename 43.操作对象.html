@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 查（查询对象）
+         *      object.attribute
+         *      object['attribute']
+         *      object.method()
+         * 改（重新赋值）
+         *      object.attribute = value
+         *      object.method = funtion(){}
+         * 增（向对象中添加新的数据）
+         *      object.newAttribute = value
+         * 删（删除对象中的属性）
+         *      delete object.attribute
+         **/
+        let person = {
+            name: 'John',
+            age: 117,
+            gender: 'male',
+            email: 'John117@gmail.com',
+            shot: function(){
+                document('John_117开枪了')
+            }
+        }
+
+        // 查（查询对象）
+        document.write('------------------------------查（查询对象）-------------------------------- </br>')
+        document.write(`${person.name} </br>`)
+        document.write(`${person['age']} </br>`)
+        console.log(person)
+        // 改（重新赋值）
+        document.write('-------------------------------改（重新赋值）-------------------------------- </br>')
+        person.age = 118
+        console.log(person)
+        document.write(`${person.age} </br>`)
+        // 增（向对象中添加新的数据）
+        document.write('-------------------------增（向对象中添加新的数据）------------------------- </br>')
+        // 会去person对象中找address这个属性，有就修改，没有就新增
+        person.address = 'The Reach'
+        person.say = function(){
+            alert('IM JOHN117')
+        }
+        console.log(person)
+        document.write(`${person.address} </br>`)
+        // 删（删除对象中的属性）
+        document.write('-------------------------删（删除对象中的属性）------------------------- </br>')
+        delete person.age
+        console.log(person)
+        document.write(`${person.age} </br>`)
+    </script>
+</body>
+</html>
