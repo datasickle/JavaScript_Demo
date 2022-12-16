@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 400px;
+        height: 100px;
+        box-shadow: 2px 2px 2px 2px gray;
+        margin: auto;
+        margin-top: 150px;
+        border: none;
+    }
+
+    .left{
+        width: 50%;
+        height: inherit;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left :first-child{
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .right{
+        width: 40%;
+        height: 50%;
+        border: 1px lightgray solid;
+        float: right;
+        margin-top: 25px;
+        margin-right: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right :first-child{
+        font-weight: bold;       
+    }
+</style>
+    
+<body>
+    <div class="container">
+        <div class="left">
+            <span>抽中的选手是：</span>
+            
+        </div>
+
+        <div class="right">
+            <span></span>
+        </div>
+    </div>
+    <script>
+        function getRandom(min, max)
+        {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        // 需求：请把['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']随机显示一个名字到页面中
+        let num = getRandom(0,6)
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+        // 之后删除被选到的人
+        arr.splice(num, 1)
+        let div_span = document.querySelector('.right :first-child')
+        div_span.innerHTML = arr[num]
+    </script>
+</body>
+</html>

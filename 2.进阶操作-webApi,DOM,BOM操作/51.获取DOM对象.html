@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是第一个盒子</div>
+    <div id="two">我是第二个盒子</div>
+    <div class="three">我是第三个盒子</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        /**
+         * 获取DOM元素
+         * 
+         * 2.其他获取DOM元素的方法（了解）
+         * 
+         * 想要操作DOM元素就得先选中并获取DOM元素
+         **/
+
+         /**
+          * 1.根据CSS选择器来获取DOM元素（重点）
+          *     1.1 选择匹配的第一个元素
+          *     语法：document.querySelector('css选择器')
+          *     参数：包含一个或多个有效的CSS选择器 字符串
+          *     返回值：CSS选择器匹配的第一个元素，一个HTMLElement对象。如果没匹配到，则返回null
+          **/
+
+        let div = document.querySelector('div')
+        console.dir(div)
+
+        let two = document.querySelector('#two')
+        console.dir(two)
+
+        let three = document.querySelector('.three')
+        console.dir(three)
+
+        let li = document.querySelector('ul li:last-child')
+        console.log(li)
+
+        /**
+         * 1.根据CSS选择器来获取DOM元素（重点）
+         *      1.2 选择匹配的多个元素
+         *      语法：document.querySelectorAll('css选择器')
+         *      参数：包含一个或多个有效的CSS选择器 字符串
+         *      返回值：CSS选择器匹配的NodeList 对象集合
+         **/
+        // 这里用到了后代选择器 意思是选择ul下的所有li后代
+        let lis = document.querySelectorAll('ul li')
+        // 返回了一个伪数组，是一个有长度有索引号的数组，但没有pop(), pish()等数组方法
+        console.log(lis)
+        // 遍历lis来获得伪数组中的所有DOM对象（元素）
+        for(let i = 0; i < lis.length; i++){
+            console.log(lis[i])
+        }
+
+        // 其他获取DOM元素的方法（了解）
+
+        // 根据id获取一个元素
+        document.getElementById('id')
+
+        // 根据标签获取一类元素 如下获取页面中所有的div
+        document.getElementsByTagName('div')
+
+        // 根据类名获取元素 获取页面所有类名为w的标签
+        document.getElementsByClassName('w')
+    </script>
+</body>
+</html>
