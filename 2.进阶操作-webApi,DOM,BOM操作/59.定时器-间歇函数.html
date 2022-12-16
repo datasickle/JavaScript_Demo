@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 定时器之一：间歇函数
+         * 另一个：setTimeOut
+         * 网页中经常会需要一种功能：每隔一段时间需要自动执行一段代码，不需要我们手动去触发
+         * 例如：网页中的倒计时
+         * 要实现这种需求，需要定时器函数
+         * 以下是间歇函数 
+         * 开启定时器：setInterval(函数，间隔时间s)
+         * 作用：每隔一段时间调用所指定的函数，一旦开启则永不停歇，除非自己停止
+         * 间隔时间单位是毫秒
+         * 
+         * setInterval的返回值是一个非零数值，表示当前定时器的ID（根据定时器的数量确定）
+         **/
+        // setInterval(function(){
+        //     document.write(`我是间歇函数执行的方法 </br>`)
+        // },1000)
+
+        let dsq = setInterval(() => {
+            document.write(`我是间歇函数执行的方法 </br>`)
+        },1000)
+
+        // 关闭定时器，因为定时器返回的是定时器的id，所以根据id来清除对应的定时器
+        clearInterval(dsq)
+    </script>
+</body>
+</html>

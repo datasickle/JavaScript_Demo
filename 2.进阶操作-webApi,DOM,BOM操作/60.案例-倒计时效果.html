@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 500px;        
+        margin: auto;
+        text-align: center;
+        margin-top: 150px;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background-color: lightgray;
+        font-size: large;
+        cursor: no-drop;
+    }
+
+    .abled{
+        width: 100px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background-color: skyblue;
+        font-size: 15px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <!-- 如下有个按钮 -->
+    <div class="box">
+        <button>60</button>
+    </div>
+    
+    <script>
+        // 倒计时效果
+        // 需求：按钮60秒之后才可以使用
+
+        /**
+         * 思路：
+         * 首先有个按钮，其状态以开始默认为disabled，且其innerHTML属性 = 60，并且颜色为灰色
+         * 然后设置一个间歇定时器函数，每隔1000毫秒按钮的innerHTML属性值 -1
+         * 当按钮innerHTML属性值<1时，innerHTML = '点击'且变天蓝色并状态为disabled = false
+         **/
+        let btn = document.querySelector('button')
+        let dsq = setInterval(() =>{
+            btn.innerHTML--
+            if(btn.innerHTML === '0'){
+                clearInterval(dsq)
+                btn.disabled = false
+                btn.innerHTML = '发送验证码'
+                btn.className = 'abled'
+            }
+        },1000)
+    </script> 
+</body>
+</html>

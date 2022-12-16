@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .maoer{
+        width: 600px;
+        height: 450px;
+        background: none;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .maoer_main{
+        width: 600px;
+        height: 100px;
+        background: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .left{
+        width: 0;
+		height: 0;
+		border-left: 69px solid transparent;  
+		border-right: 69px solid transparent;  
+		border-bottom: 100px solid pink;
+    }
+
+    .right{
+        width: 0;
+		height: 0;
+		border-left: 69px solid transparent;  
+		border-right: 69px solid transparent;  
+		border-bottom: 100px solid pink;
+    }
+
+    .container{
+        width: 600px;
+        height: 350px;
+        background: none;
+        box-shadow: 3px 3px 3px 3px lightgray;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .up{
+        width: inherit;
+        height: 300px;
+        background: none;
+    }
+
+    .up :first-child{
+        width: inherit;
+        height: inherit;
+        
+    }
+
+    .down{
+        width: inherit;
+        height: 50px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .down :first-child{
+        background: none;
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        color: yellow;
+    }
+</style>
+<body>
+    <div class="maoer">
+        <div class="maoer_main">
+            <div class="left">
+
+            </div>
+
+            <div class="right">
+
+            </div>
+        </div>
+    
+    <div class="container">
+        <div class="up">
+            <img src="./images/b01.jpg" alt="">
+        </div>
+        <div class="down">
+            <span>我是第一张图片</span>
+        </div>
+    </div>
+</div>
+    <script>
+        // 需求：每隔一秒钟切换一个图片
+
+        // 定义一个数组或json对象来存储图片地址及信息
+        let data = [
+            {
+                imgSrc: './images/b01.jpg',
+                title: '这是第一张图片'
+            },
+            {
+                imgSrc: './images/b02.jpg',
+                title: '这是第二张图片'
+            },
+            {
+                imgSrc: './images/b03.jpg',
+                title: '这是第三张图片'
+            },
+            {
+                imgSrc: './images/b04.jpg',
+                title: '这是第四张图片'
+            },
+            {
+                imgSrc: './images/b05.jpg',
+                title: '这是第五张图片'
+            },
+            {
+                imgSrc: './images/b06.jpg',
+                title: '这是第六张图片'
+            },
+            {
+                imgSrc: './images/b07.jpg',
+                title: '这是第七张图片'
+            },
+            {
+                imgSrc: './images/b08.jpg',
+                title: '这是第八张图片'
+            },
+            {
+                imgSrc: './images/b09.jpg',
+                title: '这是第九张图片'
+            }
+        ]
+
+        // 首先拿到img和span的DOM对象
+        let pic = document.querySelector('img')
+        let sign = document.querySelector('span')
+        // 声明变量，用来存储数值变化，即信号量
+        let index = 0;
+        // 每三秒切换一次图片和其对应的文字
+        let timer = setInterval(()=>{
+            pic.src = `${data[index].imgSrc}`
+            sign.innerHTML = `${data[index].title}`
+            index++
+            if(index === 9){
+                index = 0
+            }
+        },1000)
+    </script>
+</body>
+</html>

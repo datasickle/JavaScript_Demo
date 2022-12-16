@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        width: 300px;
+        height: 50px;
+        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid lightgray;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    form span{
+        background: none;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: gray;
+        margin-left: 10px;
+    }
+
+    form .password{
+        background: none;
+        height: inherit;
+        border: none;
+        text-decoration: none;
+        outline: none;
+
+    }
+
+    form .displayPwd{
+       width: 25px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border: none;
+       cursor: pointer;
+       background: none;
+    }
+</style>
+<body>
+    <form action="">
+        <span>设 置 密 码</span>
+        <input type="password" name="密码" id="password" class="password">
+        <button class="displayPwd">😆</button>
+        <input type="checkbox" name="复选" id="checkGender" class="agree">
+        <select name="城市" class="city">
+            <option value="请选择城市" class="alert">--请选择城市--</option>
+            <option value="北京">北京</option>
+            <option value="上海" class="shanghai">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+        </select>
+    </form>
+    <script>
+        /**
+         * 设置/修改表单元素属性
+         * 表单很多情况，也需要修改属性，比如点击眼睛可以看到密码，本质是将表单类型的password改为text
+         * 正常的有属性有取值的 跟其他标签没有任何区别
+         * 语法：
+         * 获取：DOM对象.属性名
+         * 设置：DOM对象.属性名 = 新值
+         * 表单.value = '用户名'
+         * 表单.type = 'password'
+         **/
+
+         // 首先获取按钮DOM对象
+         let pwdInput = document.querySelector('.password')
+         // 使用input.value可以拿到输入的值
+         pwdInput.value = '请输入密码'
+         pwdInput.type = 'text'
+         
+         /**
+          * 表单属性中添加就有效果，移除就没有效果，一律使用布尔值表示，如果为true，代表添加了该属性，如果为false代表将该属性移除。
+          * disabled、checked、selected
+          **/
+
+          // 禁用按钮
+          let btn = document.querySelector('.displayPwd')
+          btn.disabled = true
+
+          // 控制checkBox的勾选和未选
+          let checkGender = document.querySelector('.agree')
+          checkGender.checked = true
+
+          // 控制下拉框是否有默认值被选中，我们让select下面的上海被默认选中
+        //   let selectCity = document.querySelector('.city .shanghai')
+        //   selectCity.selected = true
+
+        // 将提示信息作为默认选中并禁用该option
+        let alertOpt = document.querySelector('.city .alert')
+        alertOpt.selected = true
+        alertOpt.disabeld = true
+        alertOpt.style.color = 'gray'
+    </script>
+</body>
+</html>

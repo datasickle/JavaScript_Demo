@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    
+    .active{
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+    }
+
+    .test{
+        margin-left: 100px;
+    }
+</style>
+<body>
+    <div class="box">
+
+    </div>
+    
+    <script>
+        /**
+         * 设置/修改元素样式属性
+         * 操作类名(className)操作CSC
+         * 如果修改的样式比较多，直接通过style属性修改比较繁琐，我们可以通过借助于css类名的形式
+         * 语法：active是一个css类名
+         * 元素.className = 'active'
+         * 由于class时关键字，所以使用className去代替
+         * className是使用新值换旧值吗，如果需要添加一个类，则只需要保留之前的类名
+         **/
+
+         // 将上面的div盒子的宽高各变为300px，背景颜色变为黄色
+
+         // 1.获取元素
+         let box = document.querySelector('.box')
+         // 2.使用对象.className将对象的属性重新赋值为另一个css，直接将改div的类名修改为active，那么它就会去找名为active的css属性了
+         //box.className = 'active'
+
+         // 操作className有缺点，比如直接将原来的className覆盖掉，而不是添加上去。
+         // 我们可以写多个类，一起赋值给对象的className属性，如下添加test和active这两个类
+         //box.className = 'test active'
+
+         /**
+          * 上面的className虽然也能解决覆盖以前类名的问题，但未免有些繁琐
+          * 那么我们就可以操作classList的各种方法来追加和删除类名
+          * 语法：
+          * 追加一个类：object.classList.add('类名')
+          * 删除一个类：object.classList.remove('类名')
+          * 切换一个类：object.classList.toggle('类名')，即原来有的话那就没有，原来没有的话那就有
+          **/
+
+         box.classList.add('active')
+         box.classList.add('test')
+         box.classList.remove('active')
+         // 我原来有box，那用好了toggle就没有box了
+         box.classList.toggle('box')
+    </script>
+</body>
+</html>
