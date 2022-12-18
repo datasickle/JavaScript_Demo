@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 50px;
+        border: 1px solid lightgray;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 150px;
+    }
+    .box :first-child{
+        width: 300px;
+        height: 50%;
+        background: none;
+        border: none;
+        text-align: center;
+    }
+
+    .box :last-child{
+        width: 300px;
+        height: 50%;
+        background-color: skyblue;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+
+    .box :last-child:hover{
+        background-color: rgb(89, 144, 165);
+    }
+
+    .active{
+        width: 300px;
+        height: 50%;
+        background-color: lightgray;
+        border: none;
+        cursor: no-drop;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div class="box">
+        <span>开始点名</span>
+        <button>点击随机点名</button>
+    </div>
+    <script>
+
+        function getRandom(min, max)
+        {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+
+        let textArea = document.querySelector('span')
+        let btn = document.querySelector('button')
+        
+        btn.addEventListener('click',()=>{
+
+            let num = getRandom(0,arr.length - 1)
+            // 需求：请把['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']随机显示一个名字到页面中
+            textArea.innerHTML = arr[num]
+
+            // 之后删除被选到的人
+            arr.splice(num, 1)
+            if(arr.length === 0){
+                textArea.innerHTML = '人数已抽完'
+                btn.className = 'active'
+                btn.disabled = true
+            }
+        })
+
+    </script>
+</body>
+</html>

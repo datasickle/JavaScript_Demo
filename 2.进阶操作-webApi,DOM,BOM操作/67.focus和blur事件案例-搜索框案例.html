@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 300px;
+        height: 350px;
+        background: none;
+        margin: auto;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .search_container{
+        width: inherit;
+        height: 50px;
+        background: none;
+        display: flex;
+        flex-direction: row;
+        border: 2px solid lightgray;
+    }
+
+    .search_box{
+        width: 250px;
+        height: 50px;
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    .search_btn{
+        width: 50px;
+        height: inherit;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        border-left: 2px solid lightgray;
+        background: none;
+        color: lightgray;
+    }
+
+
+
+    .search_btn:hover{
+        background-color: rgb(242, 239, 239);
+    }
+
+    .meau_container{
+        width: inherit;
+        height: 280px;
+        background: none;
+        border-left: 2px solid orange;
+        border-bottom: 2px solid orange;
+        border-right: 2px solid orange;
+        display: none;
+
+    }
+
+    .meau_list{
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .meau_list li:not(:first-child){
+        border: none;
+        list-style-type: none;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+    }
+
+    .meau_list li:not(:first-child):hover{
+        background-color: rgb(242, 239, 239);
+    }
+
+    .meau_list :first-child{
+        height: 40px;
+        line-height: 40px;
+        list-style-type: none;
+        color: gray;
+        font-size: 15px;
+    }
+
+    .search_box_active{
+        border: 2px solid orange;
+    }
+
+    .search_btn_active{
+        color: orange;
+        border-left: 2px solid orange;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="search_container">
+            <input type="search" class="search_box" placeholder="请输入搜索内容">
+            <button class="search_btn">搜索</button>
+        </div>
+
+        <div class="meau_container">
+            <ul class="meau_list">
+                <li>全部商品</li>
+                <li>初音倒模</li>
+                <li>炮姐原味</li>
+                <li>雪乃胖次</li>
+                <li>雷姆bra</li>
+                <li>惠惠魔法棒</li>
+                <li>学姐兔女郎装</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        // 需求：当表单得到焦点，显示下拉菜单，时区焦点隐藏下拉菜单
+
+        // 1.刚开始下拉菜单需要隐藏
+        let searchContainer = document.querySelector('.search_container')
+        let searchBox = document.querySelector('.search_box')
+        let searchBtn = document.querySelector('.search_btn')
+        let meauContainer = document.querySelector('.meau_container')
+        searchBox.addEventListener('focus',()=>{
+            searchContainer.classList.add('search_box_active')
+            searchBtn.classList.add('search_btn_active')
+            meauContainer.style.display = 'block'
+        })
+
+        searchBox.addEventListener('blur',()=>{
+            searchContainer.classList.remove('search_box_active')
+            searchBtn.classList.remove('search_btn_active')
+            meauContainer.style.display = 'none'
+        })
+        // 2.表单获得焦点focus，则显示下拉菜单，并且文本框变色（添加类）
+
+        // 3.失去焦点blur后，反向操作
+    </script>
+</body>
+</html>

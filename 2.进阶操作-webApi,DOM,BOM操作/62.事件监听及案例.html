@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我</button>
+    <script>
+        /**
+         * 事件：
+         * 事件监听
+         * 拓展阅读-事件监听版本
+         * 事件类型
+         */
+
+         /*事件是在编程时系统内发生的动作或发生的事情
+        比如用户在网页上单击一个按钮，事件会带来一系列的后果
+        事件监听就是让程序检测是否有事件发生，一旦有事件触发，就立刻调用一个函数做出响应，也称为注册/绑定事件
+        语法：元素.addEventListener('事件'，要执行的函数)
+        事件监听三要素：
+        1.事件源：哪个dom元素被事件触发了，要获取dom元素
+        2.事件：用什么方式触发，比如鼠标单击click，鼠标经过mouseover等
+        3.事件调用的函数：要做什么事
+        如下:
+         */
+
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function(){
+            alert(`点击1次`)
+        })
+    </script>
+</body>
+</html>

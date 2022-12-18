@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 600px;
+        height: 200px;
+        background: none;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    th{
+        background-color: deepskyblue;
+        color: white;
+    }
+
+    .goods_table{
+        width: inherit;
+        border: 1px solid deepskyblue;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    td{
+        border: 1px solid deepskyblue;
+        height: 30px;
+    }
+
+   
+
+</style>
+<body>
+    <div class="container">
+        <table class="goods_table">
+            <tbody>
+                <tr>
+                    <th class="first_th">
+                        <input type="checkbox" class="checkAll">
+                        <span>全选<span>
+                    </th>
+                    <th>商品</th>
+                    <th>商家</th>
+                    <th>价格</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" class="ck"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" class="ck"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" class="ck"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let checkAll = document.querySelector('.checkAll')
+        let checkChild = document.querySelectorAll('.ck')
+        let quanXuan = document.querySelector('span')
+
+        checkAll.addEventListener('click',()=>{
+            checkChild.forEach(element =>{
+                element.checked = checkAll.checked
+            })
+            checkAll.checked ? quanXuan.innerText = '取消' : quanXuan.innerText= '全选'
+        })
+    </script>
+</body>
+</html>

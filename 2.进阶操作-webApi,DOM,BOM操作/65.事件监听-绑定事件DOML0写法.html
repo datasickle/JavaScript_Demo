@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">点我</button>
+    <script>
+        // 绑定事件-早期DOML0写法 事件源.on事件=function(){}
+        let btn = document.querySelector('.btn')
+        btn.onclick = function(){
+            alert('点了')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 50px;
+        border: 1px solid lightgray;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .box :first-child{
+        width: 300px;
+        height: 50%;
+        background: none;
+        border: none;
+        text-align: center;
+    }
+
+    .btnbox{
+        width: 300px;
+        height: 50%;
+        background: none;
+    }
+    .box .start{
+        width: 50%;
+        height: 100%;
+        background-color: skyblue;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+
+    .box .start:hover{
+        background-color: rgb(89, 144, 165);
+    }
+
+    .active{
+        width: 50%;
+        height: 50%;
+        background-color: lightgray;
+        border: none;
+        cursor: no-drop;
+        color: white;
+        font-weight: bold;
+    }
+
+
+    .box .end{
+        width: 50%;
+        height: 100%;
+        background-color: pink;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        float: right;
+    }
+
+    .box .end:hover{
+        background-color: rgb(199, 146, 155);
+    }
+</style>
+<body>
+    <div class="box">
+        <span>开始点名</span>
+        <div class="btnbox">
+            <button class="start">开始</button>
+            <button class="end">结束</button>
+        </div>
+        
+    </div>
+    <script>
+
+        function getRandom(min, max)
+        {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+
+        let textArea = document.querySelector('span')
+        let startbtn = document.querySelector('.start')
+        let endbtn = document.querySelector('.end')
+        let timer01
+        let num
+        // 点击开始按钮事件
+        startbtn.addEventListener('click',()=>{
+            clearInterval(timer01)
+            timer01 = setInterval(()=>{
+            num = getRandom(0,arr.length - 1)
+            // 需求：请把['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']随机显示一个名字到页面中
+            textArea.innerHTML = arr[num]
+            },60)
+
+            if(arr.length === 1)
+            {
+                alert('抽完了')
+            }
+        })
+
+        // 点击结束按钮事件
+        endbtn.addEventListener('click',()=>{
+            clearInterval(timer01)
+            num = getRandom(0,arr.length - 1)
+            // 需求：请把['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']随机显示一个名字到页面中
+            textArea.innerHTML = arr[num]
+
+            // 之后删除被选到的人
+            arr.splice(num, 1)
+            if(arr.length === 0){
+                textArea.innerHTML = '人数已抽完'
+                startbtn.disabled = endbtn.disabled = true
+            }
+        })
+
+    </script>
+</body>
+</html>
