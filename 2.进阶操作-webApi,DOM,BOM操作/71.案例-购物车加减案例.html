@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 200px;
+        height: 100px;
+        background: none;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .left{
+        width: 150px;
+        height: 96px;
+        background: none;
+        border-bottom: 2px solid lightgray;
+        border-left: 2px solid lightgray;
+        border-top: 2px solid lightgray;
+        font-size: 30px;
+        text-align: center;
+        line-height: 96px;
+    }
+
+    .right{
+        width: 50px;
+        height: 100px;
+        background: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .up{
+        width: inherit;
+        height: 50px;
+        border: 2px solid lightgray;
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    .up:hover{
+        background-color: rgb(218, 218, 218);
+    }
+
+    .down{
+        width: inherit;
+        height: 50px;
+        border: none;
+        border-bottom: 2px solid lightgray;
+        border-left: 2px solid lightgray;
+        border-right: 2px solid lightgray;
+        cursor: pointer;
+        font-size: 30px;
+
+    }
+
+    .down:hover{
+        background-color: rgb(218, 218, 218);
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="left">
+            1
+        </div>
+        <div class="right">
+            <button class="up">+</button>
+            <button class="down">-</button>
+        </div>
+    </div>
+    <script>
+
+
+        // 需求：用户点击+号则文本框+1，点击-号则文本框-1，若文本框本身为1，则禁用减号
+        let btns = document.querySelectorAll('button')
+        let leftText = document.querySelector('.left')
+        let downBtn = document.querySelector('.down')
+        if(parseInt(leftText.innerHTML )=== 1)
+        {
+            downBtn.disabled = true
+            downBtn.style.cursor = 'no-drop'
+        }
+        btns.forEach(btn =>{
+            if(btn.innerHTML === '+'){
+                btn.addEventListener('click',()=>{
+                    downBtn.disabled = false
+                    downBtn.style.cursor = 'pointer'
+                    leftText.innerHTML++
+                })
+            }
+            if(btn.innerHTML === '-'){
+                btn.addEventListener('click',()=>{
+                    if(parseInt(leftText.innerHTML) === 1){
+                        btn.disabled = true
+                        btn.style.cursor = 'no-drop'
+                        return
+                    }
+                    leftText.innerHTML--
+                })
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .active{
+        background-color: skyblue;
+    }
+</style>
+<body>
+    <button class="active">第1个</button><button>第2个</button><button>第3个</button><button>第4个</button><button>第5个</button>
+    <script>
+        /**
+         * 当元素为A状态，其他元素为B状态
+         * 使用：
+         *  1.干掉所有人，使用for循环
+         *  2.复活他自己，通过this或下标找到自己或者对应的元素
+         **/
+
+         let btns = document.querySelectorAll('button')
+         for(let i=0; i < btns.length; i++){
+            btns[i].addEventListener('click',function(){
+                // 先干掉所有人
+                // for(let j=0; j < btns.length; j++){
+                //     btns[j].classList.remove('active')
+                // }
+
+                // 我只需要找出那个唯一高亮的元素，然后将其删除。
+                // 将有active这个类的对象拿到，然后移除这个active类
+                document.querySelector('.active').classList.remove('active')
+                // 复活自己
+                this.classList.add('active')
+            })
+         }
+    </script>
+</body>
+</html>
