@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <ul>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+        <li>我是孩子</li>
+    </ul>
+    <script>
+          /**
+           * 子节点查找：
+           * childNodes：获得所有子节点、包括文本节点（空格、换行）、注释节点等
+           * children（重点）：仅获得所有元素节点，返回的还是一个伪数组 
+           * 语法：
+           * 父节点.children
+           **/
+
+           // 需求，一点击按钮，所有li就变红
+
+           // 1.首先获取父亲节点，即ul
+           let ul_father = document.querySelector('ul')
+
+           // 2.给按钮绑定点击事件
+           let btn = document.querySelector('button')
+           btn.addEventListener('click', function(){
+                // 3.然后根据father.children来获取到所有的子元素
+                for(let i = 0; i < ul_father.children.length; i++){
+                    ul_father.children[i].style.color = 'red'
+                }
+           })
+           
+           
+    </script>
+</body>
+</html>

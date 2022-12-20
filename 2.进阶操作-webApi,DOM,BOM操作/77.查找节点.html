@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .erweima{
+        width: 200px;
+        height: 200px;
+        background: none;
+        border: 1px lightgray solid;
+    }
+
+
+    .close_btn{
+        width: 30px;
+        height: 30px;
+        float: left;
+        border: 1px lightgray solid;
+        text-align: center;
+        line-height: 30px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="erweima">
+        <img src="./images/code.png" alt="">
+        <i class="close_btn">x</i>
+    </div>
+    <script>
+        /**
+         * 查找节点
+         * 关闭二维码案例：
+         *  点击关闭按钮，关闭的是erweima这个盒子，还需要获取erweima盒子
+         * 思考：
+         *  关闭按钮和erweima盒子是什么关系？很明显是父子关系
+         *  所以，我们可以这样做：点击关闭按钮，直接关闭它的父级，就没必要获取erweima盒子本身了
+         * 节点关系：
+         * 父节点
+         * 子节点
+         * 兄弟节点
+         **/
+
+         /**
+          * 父节点查找：
+          * parentNode属性
+          * 返回最近一级的父节点，找不到返回为null
+          * 语法：
+          * 子元素.parentNode
+          **/
+
+          // 首先获取儿子
+          let son = document.querySelector('.close_btn')
+          son.addEventListener('click', function(){
+            // 通过parentNode属性来寻找父级
+            this.parentNode.style.display = 'none'
+          })
+          
+          console.log(father)// 输出了父亲
+    </script>
+</body>
+</html>
