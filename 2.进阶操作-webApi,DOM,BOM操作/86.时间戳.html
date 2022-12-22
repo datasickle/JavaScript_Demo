@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 什么是时间戳？
+         *  是指1790年01月01日00时00分00秒起至现在的毫秒数，它是一种特殊的计量时间的方式
+         * 时间戳是总的毫秒数 是独一无二的
+         * 计算倒计时的核心思想：
+         * 将来时间 2022-12-22 13:47:30 比如他有个时间戳2000000
+         * 现在时间 2022-12-22 13:47:30 他也有个时间戳1000000
+         * 用将来时间戳减去现在的时间戳，就是剩余的时间毫秒数
+         * 转换为时分秒就是剩余的时间了
+         **/
+
+         /**
+          * 三种方式获取时间戳
+          * 1.使用getTime()方法
+          **/
+         let date = new Date()
+         console.log(`当前时间的时间戳为：${date.getTime()}`)
+
+         /**
+          * 2.简写 +new Date()
+          **/
+         // 当前时间戳
+         console.log(`当前的时间戳为：${+new Date()}`)
+         // 指定时间戳
+         console.log(`指定的时间戳为：${+new Date('2022-12-22 12:00:00')}`)
+
+         /**
+          * 3.使用Date.now()
+          * 无需实例化，但是只能得到当前的时间戳，而前面两种可以返回指定时间的时间戳
+          **/
+         console.log(`时间戳为：${Date.now()}`)
+    </script>
+    
+</body>
+</html>

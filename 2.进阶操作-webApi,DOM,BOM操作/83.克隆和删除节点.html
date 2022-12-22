@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是内容1</li>
+        <li class="li2">我是内容2</li>
+    </ul>
+    <script>
+        /**
+         * 特殊情况下，我们新增节点，按照如下操作：
+         *  复制一个原有的节点
+         *  把复制的节点放入到指定的元素内部 
+         * 克隆语法：
+         *  元素.cloneNode(布尔值)
+         *  cloneNode会克隆出一个跟源标签一样的元素，括号内传入布尔值
+         *  若为true，则代表克隆时会包含后代节点一起克隆【深拷贝】
+         *  若为false，则代表克隆时不包含后代节点【浅拷贝】
+         *  默认为false
+         **/
+
+            let ul = document.querySelector('ul')
+            let newUl = ul.cloneNode(true)
+            document.body.appendChild(newUl)
+
+            /**
+             * 删除节点：
+             *  若一个节点在页面中已不需要时，可以将其删除
+             *  在js原生DOM操作中，要删除元素必须通过其父元素
+             * 语法：
+             *  父元素.removeChild(要删除的元素)
+             * 注：
+             *  如不存在父子关系则删除不成功
+             *  删除节点和隐藏节点(display:none)有本质区别：隐藏节点节点还存在，但是删除，则实从html中直接删除节点，删除后节点不存在
+             **/
+
+             // 删除li2，首先获取其父元素ul
+             ul.removeChild(ul.children[1])
+             
+    </script>
+</body>
+</html>

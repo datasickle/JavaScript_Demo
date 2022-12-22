@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>购物车全选功能</title>
+  <!-- 引入初始化 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #666;
+    }
+
+    body {
+      background: #fff;
+      color: #666;
+      font-size: 14px;
+    }
+
+    input {
+      outline: none;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+  </style>
+  <!-- 引入购物车样式 -->
+  <style>
+    table {
+      width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    th {
+      font: normal 14px/50px '宋体';
+      color: #666;
+    }
+
+    th,
+    td {
+      border: none;
+      text-align: center;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    input[type='checkbox'] {
+      width: 13px;
+      height: 13px;
+    }
+
+    tbody p {
+      position: relative;
+      bottom: 10px;
+    }
+
+    tbody .add,
+    tbody .reduce {
+      float: left;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    tbody input[type='text'] {
+      width: 50px;
+      float: left;
+      height: 18px;
+      text-align: center;
+    }
+
+    tbody .count-c {
+      width: 98px;
+      margin: 0 auto;
+    }
+
+    button[disabled] {
+      color: #ddd;
+      cursor: not-allowed;
+    }
+
+    tbody tr:hover {
+      background: #eee;
+    }
+
+    tbody tr.active {
+      background: rgba(241, 209, 149, 0.945);
+    }
+
+    .controls {
+      width: 790px;
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      line-height: 50px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .controls .del-all,
+    .controls .clear {
+      float: left;
+      margin-right: 50px;
+    }
+
+    .controls p {
+      float: right;
+      margin-right: 100px;
+    }
+
+    .controls span {
+      color: red;
+    }
+
+    .controls .pay {
+      position: absolute;
+      right: 0;
+      width: 80px;
+      height: 54px;
+      background: red;
+      font: bold 20px/54px '宋体';
+      color: #fff;
+      text-align: center;
+      bottom: -1px;
+    }
+
+    .controls .total-price {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="car">
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="all" />全选</th>
+          <th>商品</th>
+          <th>单价</th>
+          <th>商品数量</th>
+          <th>小计</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="carBody">
+        <tr>
+          <td>
+            <input class="s_ck" type="checkbox" readonly />
+          </td>
+          <td>
+            <img src="./images/01.jpg" />
+            <p>牛奶</p>
+          </td>
+          <td class="price">5￥</td>
+          <td>
+            <div class="count-c clearfix">
+              <button class="reduce" disabled>-</button>
+              <input type="text" value="1" />
+              <button class="add">+</button>
+            </div>
+          </td>
+          <td class="total">5￥</td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="s_ck" type="checkbox" />
+          </td>
+          <td>
+            <img src="./images/01.jpg" />
+            <p>牛奶</p>
+          </td>
+          <td class="price">10￥</td>
+          <td>
+            <div class="count-c clearfix">
+              <button class="reduce" disabled>-</button>
+              <input type="text" value="1" />
+              <button class="add">+</button>
+            </div>
+          </td>
+          <td class="total">10￥</td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="s_ck" type="checkbox" />
+          </td>
+          <td>
+            <img src="./images/01.jpg" />
+            <p>牛奶</p>
+          </td>
+          <td class="price">20￥</td>
+          <td>
+            <div class="count-c clearfix">
+              <button class="reduce" disabled>-</button>
+              <input type="text" value="1" />
+              <button class="add">+</button>
+            </div>
+          </td>
+          <td class="total">20￥</td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="s_ck" type="checkbox" />
+          </td>
+          <td>
+            <img src="./images/01.jpg" />
+            <p>牛奶</p>
+          </td>
+          <td class="price">35￥</td>
+          <td>
+            <div class="count-c clearfix">
+              <button class="reduce" disabled>-</button>
+              <input type="text" value="1" />
+              <button class="add">+</button>
+            </div>
+          </td>
+          <td class="total">35￥</td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="controls clearfix">
+      <a href="javascript:" class="del-all">删除所选商品</a>
+      <a href="javascript:" class="clear">清理购物车</a>
+      <a href="javascript:" class="pay">去结算</a>
+      <p>
+        已经选中<span id="totalCount">0</span>件商品;总价：<span id="totalPrice" class="total-price">0￥</span>
+      </p>
+    </div>
+  </div>
+  <script>
+
+ /*
+    01：首先给所有+-按钮绑定点击事件，由于有多个按钮，每个按钮都要有事件，所以应该循环绑定
+    +号按钮class：add
+    --号按钮class：reduce
+    首先获取到所有+-按钮的数组，然后遍历依次添加点击事件
+ */
+
+ // 获取所有+号DOM对象
+let addBtns = document.querySelectorAll('.add')
+ // 获取所有-号DOM对象
+ let reduceBtns = document.querySelectorAll('.reduce')
+ // 获取所有price
+ let prices = document.querySelectorAll('.price')
+ // 获取所有小计total
+ let totals = document.querySelectorAll('.total')
+ // 获取全选复选框
+ let allCheckBox = document.querySelector('#all')
+ // 获取所有小复选框
+ let littleCheckBoxs = document.querySelectorAll('.s_ck')
+ // 获取总价
+ let totalPrice = document.querySelector('.total-price')
+ // 定义总价，总价初始值等于页面显示值
+ let allPrices = parseInt(totalPrice.innerHTML)
+ // 遍历所有+号，并添加点击事件
+ for(let i = 0; i < addBtns.length; i++){
+  addBtns[i].addEventListener('click', function(){
+    // 当用户点击+号，则数量+1，当然是当前条目的数量+1，由于显示数量的元素与+号按钮是兄弟元素，于是使用silbing
+    let amount = this.previousElementSibling
+    amount.value++
+    // 当数量大于1时，-号按钮应该被启用
+    amount.value > 1 ? amount.previousElementSibling.disabled = false : amount.previousElementSibling.disabled = true
+    // 然后小计也应该随着数量的增加而增加
+    /*
+    下面的计算中还涉及到了对字符进行split分割的知识，因为原来的price都是5￥，10￥这种格式，只要用￥将其分割开
+    而后返回一个数组，数组的0号元素，就是￥之前的数字
+    */
+    totals[i].innerHTML = `${amount.value * prices[i].innerHTML.split('￥')[0]}￥`
+
+    if(littleCheckBoxs[i].checked === true){
+      
+      allPrices += amount.value * prices[i].innerHTML.split('￥')[0]
+      totalPrice.innerHTML = `${allPrices}￥`
+    }
+    
+  })
+ }
+
+ // 遍历所有-号，并添加点击事件
+ for(let j = 0; j < reduceBtns.length; j++){
+  reduceBtns[j].addEventListener('click', function(){
+   // 当用户点击-号，则商品数量-1j，当然是当前条目的数量-1，与+基本类似
+    let amount = this.nextElementSibling
+    amount.value--
+    // 当数量<1时，-号应该被禁用
+    amount.value <= 1 ? this.disabled = true : this.disabled = false
+    // 小计同样随着数量的减少而变化
+    totals[j].innerHTML = `${amount.value * prices[j].innerHTML.split('￥')[0]}￥`
+  })
+ }
+
+ /*
+  02.给全选复选框添加点击事件，当点击全选后，所有的复选框的checked都为true，反之为false
+ */
+ allCheckBox.addEventListener('click', function(){
+  // 根据当前全选框的状态来判断
+  if(allCheckBox.checked){
+    // 若被选中，则所有的小复选框都为true，当然需要遍历，给每个复选框都加上
+    for(let i = 0; i < littleCheckBoxs.length; i++){
+      littleCheckBoxs[i].checked = true
+      allPrices += parseInt(totals[i].innerHTML)
+      totalPrice.innerHTML = `${allPrices}￥`
+    }
+    
+  }else{
+    // 为false则表示没被选中，那所有的小复选框都是false
+    for(let j = 0; j < littleCheckBoxs.length; j++){
+      littleCheckBoxs[j].checked = false
+      allPrices -= parseInt(totals[j].innerHTML)
+      totalPrice.innerHTML = `${allPrices}￥`
+    }
+  }
+ })
+
+ /*
+  03.给所有小复选框加上点击事件，当所有小复选框被选中，则大复选框也被选中，
+  反之只要有一个小复选框没被选中，则大复选框就不会被选中
+ */
+
+
+ // 首先遍历所有的小复选框，并给其加点击事件
+ for(let i = 0; i < littleCheckBoxs.length; i++){
+  littleCheckBoxs[i].addEventListener('click', function(){
+    // 将被选中的条目的价钱计算到总价中
+    if(this.checked === true){
+      allPrices += parseInt(totals[i].innerHTML)
+      totalPrice.innerHTML = `${allPrices}￥`
+    }
+
+    // 当取消选中时，则从总价中减去当前条目的价钱
+    if(this.checked === false){
+      allPrices -= parseInt(totals[i].innerHTML)
+      totalPrice.innerHTML = `${allPrices}￥`
+    }
+    
+    // 遍历所有的小方框，只要有一个没被选中，那后面的就不用判断了
+    for(let j = 0; j < littleCheckBoxs.length; j++){
+      // 只要遍历到有一个没被选中
+      if(littleCheckBoxs[j].checked === false){
+        // 那大复选框就不会被选中
+        allCheckBox.checked = false
+        // 然后直接退出整个函数，不执行后面的
+        return
+      }  
+    }
+    // 并且如果被选中，那么该条目的小计就要算入总费用中
+    
+    /* 只要没进上面的if(littleCheckBoxs[i].checked === false)支线，
+    则表示所有的复选框都是true，函数自然就不会return出去，结束循环后自然就执行到这里来了，那么就应该让大复选框也为true
+    */
+    allCheckBox.checked = true
+    
+  })
+ 
+ }
+
+ 
+  </script>
+</body>
+
+</html>
