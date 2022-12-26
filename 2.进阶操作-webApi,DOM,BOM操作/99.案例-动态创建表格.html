@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+  <h1>新增学员</h1>
+  <div class="info">
+    姓名：<input type="text" class="uname">
+    年龄：<input type="text" class="age">
+    性别: <select name="gender" id="" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    薪资：<input type="text" class="salary">
+    就业城市：<select name="city" id="" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+
+    </select>
+    <button class="add">录入</button>
+  </div>
+
+  <h1>就业榜</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1001</td>
+        <td>欧阳霸天</td>
+        <td>19</td>
+        <td>男</td>
+
+        <td>15000</td>
+        <td>上海</td>
+        <td>
+          <a href="javascript:">删除</a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    /**
+     * 需求:点击录入按钮，可以增加学生信息
+     * 分析:
+      1.不管添加还是删除，都是操作的数据（数组），然后从新渲染页面
+      需求①:添加数据
+        点击录入按钮，把表单里面的值都放入数组里面
+        学号自动生成，是数组最后一个数据的学号+1
+      需求②:渲染
+        把数组的数据渲染到页面中，同时清空表单里面的值，下拉列表的值复原
+        注意，渲染之前，先清空以前渲染的内容
+        因为多次渲染，最好封装为函数
+
+     * 
+     * 
+     * 
+     **/
+
+    //  1. 准备好数据后端的数据
+    let arr = [
+      { stuId: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+      { stuId: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+      { stuId: 1003, uname: '诸葛霸天', age: 39, gender: '男', salary: '2000', city: '北京' },
+    ]
+
+    // 1.5.拿到tbody的对象
+    let tbody = document.querySelector('tbody')
+
+    // 2.根据现有的数据渲染页面，由于页面需要在多个地方多次渲染，所以封装成函数
+    function render(){
+      // 先清除以前的数据，将tbody里原来的tr清除
+      tbody.innerHTML = ''
+      // 再渲染新的数据
+      // 3.我们是根据arr数组中的数据往页面渲染，以后只需要对数组进行增删改查即可，于是先遍历数组
+      for(let i = 0; i < arr.length; i++){
+        // 4.创建tr
+        let newTr = document.createElement('tr')
+        // 5.tr里面放内容
+        newTr.innerHTML = `
+        <td>${arr[i].stuId}</td>
+        <td>${arr[i].uname}</td>
+        <td>${arr[i].age}</td>
+        <td>${arr[i].gender}</td>
+
+        <td>${arr[i].salary}</td>
+        <td>${arr[i].city}</td>
+        <td>
+          <!-- 在渲染时给a标签一个属性，用来记录当前条目数据的索引，之后可以根据该索引来删除相对应的数据 -->
+          <a href="javascript:" id="${i}">删除</a>
+        </td>`
+        // 6.将tr追加给tbody
+        tbody.appendChild(newTr)
+      }
+    }
+
+    // 页面一加载就调用函数 
+    render()
+    // 7.添加数据，获取录入按钮
+    let btn = document.querySelector('.add')
+    // 获取表单中各个元素
+    let uname = document.querySelector('.uname')
+    let age = document.querySelector('.age')
+    let gender = document.querySelector('.gender')
+    let salary = document.querySelector('.salary')
+    let city = document.querySelector('.city')
+    btn.addEventListener('click', function(){
+      // 7.1.获得表单中输入的值
+      // 7.2.使用arr.push将值放入数组中
+      arr.push({
+        // 得到数组最后一条数据的学号 + 1
+        stuId: arr[arr.length - 1].stuId + 1,
+        uname: uname.value,
+        age: age.value,
+        gender: gender.value,
+        salary: salary.value,
+        city: city.value
+      })
+      // 调用函数重新渲染页面
+      render()
+
+      // 将表单数据复原
+      uname.value = age.value = salary.value = ''
+      gender.value = '男'
+      city.value = '北京'
+    })
+
+    // 删除操作，删除数组中的数据，使用事件委托
+    tbody.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+          // 删除操作，删除数组中的数据
+          // 得到a的id号
+          arr.splice(e.target.id, 1)
+          // 重新渲染
+          render()
+        }
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3600px;
+            background-color: yellow;
+        }
+
+        .container {
+            height: 50px;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            padding: 0;
+            margin: 0;
+            font-family: SimHei;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+            border: none;
+            position: fixed;
+            cursor: pointer;
+            top: 700px;
+            right: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">这是顶部</div>
+    <button>返回顶部</button>
+    <script>
+        let btn = document.querySelector('button')
+        // 给window添加scroll事件
+        window.addEventListener('scroll', function(){
+            // 获取html滚动了多少
+            console.log(document.documentElement.scrollTop)
+            if (document.documentElement.scrollTop >= 400){
+                btn.style.display = 'block'
+            }else{
+                btn.style.display = 'none'
+            }
+        })
+
+        btn.addEventListener('click', function(){
+            document.documentElement.scrollTop = 0
+            btn.style.display = 'none'
+        })
+    </script>
+</body>
+</html>

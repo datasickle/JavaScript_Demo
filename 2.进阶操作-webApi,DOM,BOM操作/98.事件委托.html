@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <script>
+        /**
+         * 事件委托是利用事件流的特征解决一些开发需求的知识技巧
+         * 可以利用冒泡来做事件委托
+         **/
+
+         /**
+          * 上面我们有五个小li，每个注册都有些麻烦
+          * 我们不要每个小li都注册事件，而是把事件委托给他的父亲ul
+          * 事件委托是给父级添加事件 而不是子级
+          **/ 
+         let ul = document.querySelector('ul')
+         ul.addEventListener('click', function(e){
+            console.log(e.target)
+            e.target.style.color = 'red'
+         })
+
+         /**
+          * 虽然li上没有点击事件，但是当点击过后，会有事件冒泡存在，
+          * 就会去他的父级找点击事件，找到了自然就执行了
+          * 但是会有缺点，无论点哪个小li都是ul执行点击事件，无法区分。
+          * 那么如何得到当前点击的对象呢？
+          * 可以使用事件对象.target就可以拿到了，target就是当前执行事件的对象
+          * 
+          **/
+    </script>
+</body>
+</html>

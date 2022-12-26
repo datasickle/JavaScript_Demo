@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 3600px;
+        background-color: yellow;
+    }
+
+    .container {
+        width: 150px;
+        height: 200px;
+        background-color: skyblue;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div class="container">
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+        我里面可以放很多文字
+    </div>
+    <script>
+        /**
+         * 滚动事件：
+         *  即页面滚动会触发的事件，即使只滚动1px也会触发
+         * 事件名：scroll
+         * 监听整个页面滚动：window.addEventListener('scroll', function(){})/document.addEventListener('scroll', function(){})
+         * 
+         **/
+        window.addEventListener('scroll', function(e){
+            
+            // alert('触发滚动事件')
+        })
+
+        let div = document.querySelector('.container')
+        div.addEventListener('scroll', function(){
+            alert('触发div滚动事件')
+        })
+    </script>
+</body>
+</html>

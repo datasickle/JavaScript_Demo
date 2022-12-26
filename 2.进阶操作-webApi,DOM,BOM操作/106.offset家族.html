@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body {
+        height: 3600px;
+        background-color: yellow;
+    }
+
+    .container {
+        width: 80px;
+        height: 150px;
+        background-color: skyblue;
+        overflow: auto;
+        border: 2px solid black;
+        margin: auto;
+        margin-top: 150px;
+    } 
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+    </div>
+    <script>
+        /**
+         * offset家族：
+         * 获取宽高：   
+         *  获取元素的自身宽高、包含元素自身设置的宽高、padding、border，与内容无关
+         *  offsetWidth和offsetHeight
+         * 获取位置：
+         *  获取元素距离自己定位父级元素的左、上距离
+         *  如果父级没有定位，则一层一层网上找，直到找到body
+         *  offsetLeft和offsetTop
+         *  注意是只读属性
+         * 
+         **/
+
+         let div = document.querySelector('.container')
+         // 可以发现输出的与css中设置的宽高一致，添加个border后输出的就是带border大小的元素大小了
+         console.log(div.offsetWidth)
+         console.log(div.offsetHeight)
+         // 盒子元素的大小 = 盒子本身的宽高 + padding + border
+         console.log(div.offsetLeft)
+         console.log(div.offsetTop)
+    </script>
+</body>
+</html>

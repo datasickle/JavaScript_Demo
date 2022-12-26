@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3600px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /**
+         * 检测页面滚动的距离
+         **/
+
+         // 先做页面滚动事件
+        window.addEventListener('scroll', function(){
+            // 我们需要得到整个html，才能知道html滚动了多少
+            // 而document.documentElement就能得到整个html元素
+            console.log(document.documentElement.scrollTop)
+            document.documentElement.scrollTop += 500
+        })
+    </script>
+</body>
+</html>

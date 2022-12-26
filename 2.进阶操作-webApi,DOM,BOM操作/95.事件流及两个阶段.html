@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father{
+        width: 400px;
+        height: 300px;
+        background-color: yellow;
+    }
+
+    .father .son{
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        /**
+         * 事件流与两个阶段说明
+         *  即事件完整执行过程中的流动路径
+         * 捕获阶段：Document → html → body → div
+         * 冒泡阶段：div → body → html → Document
+         **/
+
+         /*
+            当我想给div一个点击事件，那他由两个阶段来执行
+            第一个是捕获阶段：从最大的Document到html再到body再到最终的div，将div捕获
+            第二个是冒泡阶段：而后再从div到body到html再到Document告知div被捕获
+            这个过程就是事件流
+         */
+
+         /*
+            事件冒泡概念：
+            当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。该过程被称为事件冒泡
+            也就是默认事件执行的过程
+            如上给.son的div和.father的div都绑定点击事件，只要一点击.son，那么.father也必执行，如果再给document也绑定
+            点击事件，那么会先执行.son，然后是.father，然后是document的点击事件
+         */
+
+         /*
+
+         */
+
+         let father = document.querySelector('.father')
+         let son = document.querySelector('.son')
+         son.addEventListener('click', function(){
+            alert('我是儿子')
+         })
+
+         father.addEventListener('click', function(){
+            alert('我是父亲')
+        })
+
+        document.addEventListener('click', function(){
+            alert('我是document')
+        })
+
+        /*
+            事件捕获概念：
+            与事件冒泡正好相反，他会从DOM的根元素开始执行，也就是从document开始，直到div
+            将addEventListener的第三个参数设置为true，就可以开启事件捕获，默认为false事件冒泡
+         */
+
+    </script>
+</body>
+</html>

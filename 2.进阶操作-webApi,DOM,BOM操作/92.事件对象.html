@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我</button>
+    <script>
+        /**
+         * 事件对象：
+         *  获取事件对象
+         *  事件对象常用属性
+         * 事件对象是什么：
+         *  也是个对象，该对象中有事件触发时的相关信息
+         *  例如：鼠标点击事件中，事件对象就存了鼠标点在哪个位置等信息
+         * 如何获取：
+         *  在事件绑定的回调函数的第一个参数就是事件对象
+         *  一般命名为event、ev、e
+         * 语法：
+         *  元素.addEventListener('click', function(e){})
+         **/
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function(e){
+            console.log(e)
+            console.log(e.type)
+            // clientX和clientY 是相对于浏览器左上角的距离，只在当前可视区有效
+            console.log(e.clientX) 
+            console.log(e.clientY)
+            // offsetX/offsetY获取光标相对于当前DOM元素左上角的位置
+            console.log(e.offsetX)
+            console.log(e.offsetY) 
+            // pageX和pageY跟文档坐标有关系，是相对于页面左上角的距离，不受可视窗口影响
+            console.log(e.pageX) // 距离当前文档左边距离
+            console.log(e.pageY) // 距离当前文档上方距离
+        })
+
+        /**
+         * 事件对象常用属性：
+         *  type：获取当前的事件类型
+         *  clientX/clientY：获取光标相对于浏览器可见窗口左上角的位置
+         *  offsetX/offsetY：获取光标相对于当前DOM元素左上角的位置
+         *  key：用户按下的键盘键的值，现在不提倡使用keyCode
+         * 
+         **/
+    </script>
+</body>
+</html>

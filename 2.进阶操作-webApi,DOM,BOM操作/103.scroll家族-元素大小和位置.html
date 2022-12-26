@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 3600px;
+        background-color: yellow;
+    }
+
+    .container {
+        width: 80px;
+        height: 150px;
+        background-color: skyblue;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div class="container">
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+    </div>
+    <script>
+        /**
+         * 元素大小和位置：掌握元素大小和位置的获取方法，为后续网页特效打基础
+         *  scroll家族
+         *  offset家族
+         *  client家族
+         * 使用场景：
+         *  我们想要页面滚动一段距离，比如100px，就让某些元素显示隐藏，那我们怎么知道，页面滚动了100像素呢？
+         *  就可以使用scroll老检测页面滚动的距离
+         **/
+
+         /**
+          * 获取宽高：
+          *  获取元素的内容总宽高（不包含滚动条）返回值不带单位
+          *  scrollWidth和scrollHeight
+          **/
+
+         /*
+            我们盒子的宽高均为150px
+            scrollWidth和scrollHeight（了解）
+            获取的时内容的高度，我们的内容高度已经超出了盒子高度，所以打印的是内容的宽高
+            即使给盒子加了overflow: auto 仍旧输出的是内容本身的宽高
+         */
+
+         let div = document.querySelector('.container')
+         //console.log(div.scrollWidth) // 150
+         //console.log(div.scrollHeight) // 686
+
+         /*
+            被卷去的头部和左侧
+                获取位置：可以获取元素往左、往上滚出去看不到的距离
+                scrollLeft和scrollTop
+                这两个属性是可以修改的
+         */
+        div.addEventListener('scroll', function(){
+            //console.log(div.scrollLeft)// 页面往左滚动了多少像素
+            //console.log(div.scrollTop)// 页面往下滚动了多少像素
+        })
+
+        
+    </script>
+</body>
+</html>

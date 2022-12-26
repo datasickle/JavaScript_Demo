@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <img src="./images/tianshi.gif" alt="">
+    <script>
+        // 需求：杨子航图片一直跟着鼠标移动
+
+        /**
+         * 分析
+         *  1.鼠标在页面中移动，用到了mousemove事件
+         *  2.不断地将鼠标在页面中的坐标位置给图片left和top值即可
+         **/
+
+         let img = document.querySelector('img')
+         document.addEventListener('mousemove', function(e){
+             img.style.top = `${e.pageY}px`
+             img.style.left = `${e.pageX}px`
+            console.log(e.pageX)
+            console.log(e.pageY)
+         })
+    </script>
+</body>
+</html>

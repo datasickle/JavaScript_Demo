@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father{
+        width: 400px;
+        height: 300px;
+        background-color: yellow;
+    }
+
+    .father .son{
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        /**
+         * 阻止事件流动
+         * 我们有时并不想要事件流动，只想让事件在本元素被触发，不要冒泡到父级
+         * 所以我们要阻止事件流动
+         * 组织事件流动需要拿到事件对象
+         * 语法：
+         * 事件对象.stopPropagation();
+         * 捕获和冒泡阶段均有效
+         **/
+         let father = document.querySelector('.father')
+         let son = document.querySelector('.son')
+
+         father.addEventListener('click', function(){
+            alert('我是父亲')
+        })
+
+        son.addEventListener('click', function(e){
+            // 阻止事件冒泡
+            e.stopPropagation()
+            alert('我是儿子')
+         })
+
+        document.addEventListener('click', function(){
+            alert('我是document')
+        })
+
+        /**
+         * 鼠标经过事件：
+         *  mouseover和mouseout会有冒泡效果
+         *  mouseenter和mouseleave没有冒泡效果（推荐）
+         **/
+
+         /**
+          * 阻止默认行为方法，比如链接点击不跳转，表单域的跳转
+          * 语法：e.preventDefault();
+          * 
+          **/
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * client家族：
+         *  当前可视区域，会随着浏览器窗口的放大缩小而变化
+         * 获取宽高：
+         *  clientWidth和clientHeight
+         *  获取元素的可见部分宽高（包含padding，不包含边框，滚动条等）
+         * 获取位置：
+         *  获取左边框和上边框宽度
+         *  clientLeft和clientTop 注意是只读属性
+         *  得到可视区到边框的距离，其实也就是得到边框的宽度
+         *  如果border设置为10px，clientLeft和clientTop拿到的就是10px
+         * 
+         * 触发事件：会在窗口可视区尺寸改变的时候触发事件
+         *  resize
+         * 
+         **/
+
+         console.log(document.documentElement.clientWidth)
+         console.log(document.documentElement.clientHeight)
+
+         
+    </script>
+</body>
+</html>

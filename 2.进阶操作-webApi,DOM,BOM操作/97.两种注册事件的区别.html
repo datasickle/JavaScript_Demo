@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 两种注册事件的区别：
+         * 传统on注册(L0)
+         *  同一个对象，后面注册的事件会覆盖前面的注册（同一事件类型）
+         *  直接使用null覆盖就可以实现事件解绑
+         *  都是冒泡阶段执行的
+         * 事件监听注册(L2)
+         *  语法：addEventListener（事件类型，事件处理函数，是否使用事件捕获）
+         *  后面注册的事件不会覆盖前面注册的事件（同一事件类型）（多次注册则效果叠加）
+         *  可以通过第三个参数去确定是在冒泡或者捕获阶段执行
+         *  必须使用removeEventListener（事件类型，事件处理函数，获取捕获或者冒泡阶段）来解绑
+         *  匿名函数无法被解绑
+         *  所以要解绑某个事件绑定的函数时，应该将函数抽取出来并命名，移除时指定函数名即可
+         * btn.addEventListener('click', add)
+         * function add(){alert('click')}
+         * btn.removeEventListener('click', add)
+         * 
+         **/
+    </script>
+</body>
+</html>
