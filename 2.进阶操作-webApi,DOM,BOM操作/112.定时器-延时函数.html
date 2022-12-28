@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 定时器-延时函数
+         *  该函数可以让代码延时执行，叫setTimeout
+         *  间歇函数定时器是让函数不停的在某段时间后不停地执行，而延时函数是让代码在某段时间后执行一次
+         *  setTimeout(回调函数， 等待的毫秒数)
+         *  清除定时器：clearTimeout(timer)
+         **/
+        let timer = setTimeout(function(){
+            alert('233')
+        }, 3000)
+
+        clearTimeout(timer)
+    </script>
+</body>
+</html>

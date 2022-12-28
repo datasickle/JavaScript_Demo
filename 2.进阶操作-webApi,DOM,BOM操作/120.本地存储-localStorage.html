@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1.数据存储在用户浏览器中
+         * 2.设置、读取、甚至页面刷新不丢失数据
+         * 3.容量较大，sessionStorage和localStorage约5M左右
+         * 
+         **/
+
+         /**
+          * localStorage
+          * 1.生命周期永久有效，除非手动删除，否则关闭页面也会存在
+          * 2.可多窗口（页面）共享（同一浏览器）
+          * 3.以键值对的形式存储使用
+          **/
+
+          /*
+            存储数据：
+                localStorage.setItem(key, value)
+          */
+
+          localStorage.setItem('username', 'azi')
+
+          /*
+            获取数据：
+                localStorage.getItem(key)
+          */
+
+          let uname = localStorage.getItem('username')
+          console.log(uname)
+
+          /*
+            删除数据：
+                localStorage.removeItem(key)
+          */
+
+          localStorage.removeItem('username')
+
+          /*
+            存储引用数据类型：如对象
+            本地只能存储字符串，无法存储引用类型，需要将引用类型转换为json字符串，再存储到本地
+            JSON.stringify(引用数据类型)：将引用类型转换成JSON字符串
+            JSON.parse(JSON字符串)：将JSON字符串再转换为对象
+          */
+
+          let obj = {
+            uname: 'azi',
+            age: 17,
+            address: 'Virtual Tokyo'
+          }
+
+          localStorage.setItem('obj', JSON.stringify(obj))
+
+          /*
+            取出
+          */
+
+          console.log(JSON.parse(localStorage.getItem('obj')))
+    </script>
+</body>
+</html>

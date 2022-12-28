@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * location的数据类型是对象，它拆分并保存了URL地址的各个组成部分
+         * 常用属性和方法：
+         *  href属性获取完整的URL地址，让其赋值时用于地址的跳转
+         *  search属性获取地址中携带的参数，符号 ? 后面的部分
+         *  hash属性获取地址中的哈希值，符号 # 后面部分
+         *  reload方法用来刷新页面，传入参数true时表示强制刷新
+         **/
+
+         /*
+            href属性获取完整的URL地址，让其赋值时用于地址的跳转
+         */
+
+         // 可以得到当前文件URL地址
+         console.log(location.href)
+
+         // 可以通过js赋值的方式给href重新赋值，以达到跳转到目标地址的目的
+         //location.href = 'http://www.bilibili.com'
+
+
+         /*
+            search属性获取地址中携带的参数，符号 ? 后面的部分
+            即问号传参拿到参数，带着问号的，用字符串截取就行
+         */
+
+         console.log(location.search)
+
+         /*
+            hash属性获取地址中的哈希值，符号 # 后面部分
+            vue的路由导航用的就是这个
+         */
+
+         /*
+            reload方法用来刷新页面，传入参数true时表示强制刷新（相当于Ctrl+F5）
+         */
+    </script>
+</body>
+</html>
