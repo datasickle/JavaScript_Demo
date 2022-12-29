@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 量次：表示重复次数
+         *  *：重复零次或更多次
+         *  +：重复一次或更多次
+         *  ?：重复零次或一次
+         *  {n}：重复n次
+         *  {n,}：重复n次或更多次
+         *  {n,m}：重复n到m次
+         **/
+
+         // * 量词 n >= 0
+        console.log(/a*/.test()) // 即使被测的字符中没有a，也为true
+        console.log(/a*/.test('aaaaaaaaaaaaaaaaaaaaaaa')) // 同理，不管有多少个a，都为true
+        console.log(/a*/.test('b')) // 同理，不管有没有a，都为true
+
+        // + 量词 n >= 1
+        console.log(/a+/.test()) // 用+号表示至少出现一次
+        console.log(/a+/.test('a')) // 用+号表示至少出现一次
+        console.log(/a+/.test('aaaaaaaaaaaaaaaaaaaaaaa')) // 同理，一次或更多次都可以
+
+        // ? 量词 n > 0
+        console.log(/a?/.test()) // a出现0次，输出为true
+        console.log(/a?/.test('a')) // a出现1次，输出为true
+        console.log(/a?/.test('aaaaaaaaaaaaaaaaaaaaaaaaaa')) // a出现1次以上，为true
+        console.log(/^a?$/.test('aa')) // false 以a开头，以a结尾，且只能出现一次，那就只有a
+
+        console.log(/a{3}/.test()) // a应出现3次，但1次都没有，false
+        console.log(/a{3}/.test('aaabbbccc')) // a出现3次，true
+        console.log(/a{3}/.test('aaaabbbccc')) // a出现3次以上，true
+        console.log('-------------------------------')
+        console.log(/^a{5}/.test('aaaabbbccc')) // 以a开头并且最少出现5次，这里出现了4次，所以错误
+        console.log(/a{5}$/.test('aaaabbbccc')) // 以a结尾并且最少出现5次，这里出现了0次，所以错误
+
+
+        console.log(/a{3,}/.test('aaa')) // a出现3次，true
+        console.log(/a{3,}/.test('aaaa')) // a出现3次以上，true
+        console.log(/a{3,}/.test('aabb')) // a出现3次以下，false
+
+        console.log(/^a{3,5}/.test('aaabbbccc')) // a出现了3次 true
+        console.log(/^a{3,5}/.test('aaaabbbccc')) // a出现了4次 true
+        console.log(/^a{3,5}/.test('aaaaabbbccc')) // a出现了5次 true
+        console.log(/^a{3,5}/.test('aaaaaaaaabbbccc')) // a出现了5次以上 true
+        console.log(/^a{3,5}$/.test('aaaaaa')) //精确匹配a，且只能出现3-5次 false
+        console.log(/^a{3,5}$/.test('aaaaab')) //精确匹配a，且只能出现3-5次，且不能出现其他字符 false
+        console.log(/^a{3,5}$/.test('aaaaa')) //精确匹配a，且只能出现3-5次，true
+
+
+        
+
+
+         
+
+    </script>
+</body>
+</html>

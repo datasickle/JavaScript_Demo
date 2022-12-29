@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 正则表达式(Regular Expression)：
+         *  适用于匹配祖字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。
+         *  通常用来查找、替换那些符合正则表达式的文本，许多语言都支持正则表达式。
+         * 语法：
+         *  1.定义规则 2.查找
+         *  JS中定义正则表达式的语法有两种。
+         *  1.定义正则表达式语法：
+         *  let 变量名 = /表达式/
+         *  其中/ /是正则表达式的字面量，不是注释。表达式返回的是一个对象。变量里存的就是一个正则对象，可以使用方法属性。
+         *  2.使用test方法判断是否有符合定义规则的字符串
+         *  3.使用exec方法检索查找符合规则的字符串，在一个指定字符串中执行一个搜索匹配，返回的是数组
+         * 元字符：
+         * 修饰符：
+         **/
+
+         // 1.定义正则表达式
+         let reg = /端/
+
+         // 2.判断是否有符合规则的字符串 语法：正则对象.test(被检测的字符串)
+        console.log(reg.test('前端学习中')) // 输出true
+        console.log(reg.test('学习中')) // 输出false
+
+        // 3.exec在一个指定字符串中执行一个搜索匹配，返回的是一个字符串数组
+        //并且会告诉所查找的字符在字符串的哪个下标上
+        let str = 'IT培训,前端开发培训,web前端培训,软件测试培训,产品经理培训'
+        console.log(reg.exec(str))
+
+         
+    </script>
+</body>
+</html> 

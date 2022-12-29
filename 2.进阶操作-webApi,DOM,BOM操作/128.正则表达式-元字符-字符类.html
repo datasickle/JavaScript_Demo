@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 字符类：比如\d 表示0-9
+         * []：匹配字符集合
+         **/
+        // 只要中括号中的任意字符出现，都返回为true
+        console.log(/[abc]/.test('andy')) // true
+        console.log(/[abc]/.test('baby')) // true
+        console.log(/[abc]/.test('cry')) // true
+        console.log(/[abc]/.test('die')) // false
+
+        // 连字符 [-] 表示范围
+        console.log(/^[a-z]$/.test('c'))
+        console.log(/^[a-z]$/.test('a')) // 只能出现26个字母中的一个 26个英文字母只出现一个
+        console.log(/^[abc]$/.test('abc')) // false 因为只能出现 abc中的一个
+        // 表示大小写都可以
+        console.log(/^[a-zA-Z]$/.test('a'))
+        console.log(/^[a-zA-Z]$/.test('A'))
+        // 可以大写 可以小写 可以数字
+        console.log(/^[a-zA-Z0-9]$/.test('9'))
+        // 当然也可以下划线
+        console.log(/^[a-zA-Z0-9-_]$/.test('-'))
+
+        // qq号 /^[1-9][0-9]{4,}$/ (qq号从10000开始) 
+    </script>
+</body>
+</html>
