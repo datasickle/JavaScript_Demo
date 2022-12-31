@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 修饰符：
+         *  修饰符约束正则表达式的某些细节行为，如是否区分大小写、是否支持多行匹配等
+         *  /表达式/修饰符
+         * i：是单词ignore的缩写，正则匹配时字母不区分大小写
+         * g：是单词global的缩写，匹配所有满足正则表达式的结果
+         **/
+        console.log(/a/i.test('a')) // 不区分大小写，所以true
+        console.log(/a/i.test('A')) // 不区分大小写，所以true
+    </script>
+</body>
+</html>
