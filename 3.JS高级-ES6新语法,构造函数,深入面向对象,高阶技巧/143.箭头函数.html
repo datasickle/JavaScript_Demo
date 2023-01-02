@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 箭头函数：
+         *  引入箭头函数的目的使更简短的函数写法且不绑定this，箭头函数的语法比函数表达式更简洁
+         * 使用场景：
+         *  箭头函数更适用于那些本来就需要匿名函数的地方
+         * 学习路径：
+         *  1.基本语法
+         *  2.箭头函数参数
+         *  3.箭头函数this
+         **/
+
+         // 1.以前的写法
+        const fn = function(){
+            console.log(123)
+        }
+
+        // 2.箭头函数
+         const fun = (x) => {
+            console.log(x)
+         }
+
+         fun(123)
+
+         // 3.如果函数只有一个参数，那么小括号可以被省略
+         const f = x =>{
+            console.log(x)
+         }
+         f(6)
+
+         // 4.只有一行代码时，可以省略大括号
+         const method = x => console.log(x)
+         method(1)
+
+         // 5.如果只有一行return，那么可以省略大括号和return
+         const fn1 = x => {
+            return x+x
+         }
+
+         const fn2 = x => x+x
+
+         console.log(fn2(2)) 
+
+         //  6.箭头函数可以直接返回一个对象，但对象和函数的大括号相同，所以为了避免冲突，将返回的对象用小括号包裹
+         const fn3 = (uname) => ({uname: uname})
+         console.log(fn3('John')) 
+    </script>
+</body>
+</html>

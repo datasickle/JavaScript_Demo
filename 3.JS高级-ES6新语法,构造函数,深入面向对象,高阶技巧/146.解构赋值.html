@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 解构赋值：
+         * 1.数组解构
+         *  是将数组的单元值快速批量赋值给一系列变量的简洁语法
+         *  赋值运算符 = 左侧的[]用于批量声明变量，右侧数组的单元值将被赋值给左侧的变量
+         *  变量的顺序对应数组单元值的位置依次进行赋值操作
+         * 2.对象解构
+         **/
+
+         // 如下有个数组，其中分别是最大值，最小值和平均值
+         const arr = [100, 60, 80]
+         console.log(arr[0]) //最大值
+         console.log(arr[1]) //最小值
+         console.log(arr[2]) //平均值
+        //  const max = arr[0]
+        //  const min = arr[1]
+        //  const avg = arr[2]
+         // 以上这么写过于麻烦，所以我们可以用解构赋值的方法让代码更简洁
+        const [max, min, avg] = [100, 60, 80]
+        console.log(max)
+        console.log(min)
+        console.log(avg)
+
+        // 交换两个变量
+        let a = 1
+        let b = 2;
+        [b, a] = [a, b]
+        console.log(a, b)
+    </script>
+</body>
+</html>

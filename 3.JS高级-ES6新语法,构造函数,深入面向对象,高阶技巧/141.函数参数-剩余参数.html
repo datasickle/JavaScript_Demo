@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 剩余参数：
+         * 剩余参数允许我们将一个不定数量的参数表示为一个数组
+         * 这个跟可变长参数就一样了
+         * 剩余参数是个真数组，可以用数组的任何方法
+         **/
+
+         // 需求：同样写一个球和参数，无论用户传入几个实参，都要把和求出来
+
+         function getSum(a, b, ...arr){
+            let sum = 0
+            for(let i = 0; i < arr.length; i++){
+                sum += arr[i]
+            }
+            console.log(sum)
+         }
+
+         getSum(2, 3, 6) // 会将2, 3给a, b，剩下的6会给arr
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * forEach遍历数组
+         * forEach()方法用于调用数组中的每个元素，并将元素传递给回调数组
+         * 主要使用场景：遍历数组中的每个元素
+         * 只遍历，不返回值，map()方法会返回值
+         * 语法：
+         *  arr.forEach(function (当前数组元素, 当前元素索引号){
+         *      // 函数体
+         * })
+         **/
+
+         const arr = ['red', 'green', 'pink']
+
+         arr.forEach(function(item, index){
+            console.log(item)
+            console.log(index)
+         })
+    </script>
+</body>
+</html>

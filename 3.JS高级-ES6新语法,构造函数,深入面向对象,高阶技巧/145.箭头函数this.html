@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 箭头函数出现之前，每一个新函数根据它是被如何调用的来定义这个函数的this值，也就是谁调用它，this就是谁，非常讨厌。
+         * 箭头函数不会创建自己的this，它只会从自己的作用域链的上一层沿用this
+         **/
+
+         const fn = () => {
+            console.log(this) // this指向window，因为该函数中没有this，于是往上找，找到了window，那么this就指向了window
+         }
+         fn()
+
+         // 对象方法箭头函数this
+         const obj = {
+            uname: 'John',
+            sayHi: () => {
+                console.log(this) // 这里依旧指向了window，因为往上找，obj本质上也是window.obj.sayHi()，所以还是指向window
+            }
+         }
+
+         obj.sayHi() 
+
+         const obj2 = {
+            uname: 'White',
+            sayHi: function(){
+                let i = 10
+                const count = () => {
+                    console.log(this) // 这里箭头函数的this指向了obj2，因为传统函数本身就会指向它的调用者
+                }
+                count()
+            }
+         }
+
+         obj2.sayHi()
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 闭包应用：实现数据私有
+         * 比如：我们要做个统计函数调用次数，函数调用一次，就++
+         **/
+        
+        /*
+        传统写法
+        */
+    //    let count = 0
+    //    function fn(){
+    //     count++
+    //     console.log(`函数被调用了${count}次`)
+    //    }
+    //    fn() // 1
+    //    fn() // 2
+
+       /*
+        以上的传统写法虽然可以实现，但有个弊端
+        即count是全局变量，没有私有性，很容易被修改
+        但我们只要把他改成闭包形式即可解决这个问题
+       */
+
+       /*
+        闭包形式
+       */
+
+       function count(){
+        let i = 0
+        function fn(){
+            i++
+            console.log(i)
+        }
+        return fn
+       }
+
+       const fun = count()
+
+       /**
+        * 以上闭包形式虽好，但存在内存泄露的隐患，即垃圾不会被回收
+        * fun是一个全局变量，它接收count()这个函数的返回值，
+        * count()函数返回了fn()这个函数，而fn()函数用到了i这个局部变量
+        * 而i这个局部变量在count()函数中，可以发现，一步步可以从全局找到i，
+        * 则表示i一直被使用着，那么变量i就不会被垃圾回收机制回收，所以会有内存泄露的问题
+        **/
+       
+    </script>
+</body>
+</html>

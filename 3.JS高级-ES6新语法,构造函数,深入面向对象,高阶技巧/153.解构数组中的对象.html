@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 如下有个变量，数组中有多个对象，该怎么解构呢
+         **/
+
+         const [{name, age, address}] = [{
+            name: 'John',
+            age: 117,
+            address: 'The Reach'
+         }]
+
+         console.log(name)
+         console.log(age)
+         console.log(address)
+    </script>
+</body>
+</html>

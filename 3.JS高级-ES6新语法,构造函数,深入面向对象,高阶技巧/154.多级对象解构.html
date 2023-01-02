@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 多级对象解构
+         **/
+
+         const pig = {
+            name: 'nanami',
+            family: {
+                mother: 'azi',
+                father: 'diana',
+                sister: 'xiaoke'
+            },
+            age: 117
+         }
+
+         // 像上面这个对象中又有个family对象，该如何解构呢？需要在前面指定被解析的对象
+         const {name, family: {mother,father,sister}, age} = {
+            name: 'nanami',
+            family: {
+                mother: 'azi',
+                father: 'diana',
+                sister: 'xiaoke'
+            },
+            age: 117
+         }
+
+         console.log(name)
+         console.log(mother)
+         console.log(father)
+         console.log(sister)
+         console.log(age)
+    </script>
+</body>
+</html>
