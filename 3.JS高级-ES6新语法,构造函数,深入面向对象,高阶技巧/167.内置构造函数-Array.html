@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Array是内置的构造函数，用于创建数组
+         **/
+        const arr1 = new Array(3, 5)
+        //相当于用字面量创建数组
+        const arr2 = [3, 5]
+
+        /**
+         * 其中Array有很多方法来使用，核心方法有4个
+         * forEach 遍历数组 无返回值，用于不改变值，经常用于查找打印输出值
+         * filter 过滤数组 筛选数组元素，并生成新数组
+         * map 迭代数组 返回新数组，新数组里面的元素是处理之后的值，经常用于处理数据
+         * reduce 累计器 返回函数累计处理的结果，经常用于求和等
+         **/
+
+         /*
+            reduce 返回函数累计处理的结果，经常用于求和等
+            基本语法：
+            arr.reduce(function(累计值, 当前元素 [,索引号][,源数组]){}, 起始值)
+            参数：
+            1.起始值可以省略，如果写就作为第一次累计的起始值，累计值 = 起始值
+            2.如果没有起始值，则累计值以数组的第一个数组元素作为起始值开始累计
+            3.后面每次遍历就会用后面的数组元素 累计到 累计值里面（类似求和里面的sum）
+         */
+
+         const arr3 = [1,2,3,6]
+        //  let result = arr3.reduce(function(prev, item){
+        //     return prev + item
+        //  })
+        let result = arr3.reduce((prev,item)=>prev+item)
+        console.log(result)
+    </script>
+</body>
+</html>

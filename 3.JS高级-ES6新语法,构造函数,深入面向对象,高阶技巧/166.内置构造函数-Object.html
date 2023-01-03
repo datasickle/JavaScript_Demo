@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Object是内置的构造函数，用于创建普通对象
+         **/
+
+         // 通过构造函数创建普通对象
+         const user = new Object({name: 'John', age: 117})
+         // 推荐使用字面量方式声明对象，而不是Object构造函数
+
+         /**
+          * 三个常用的静态方法（只有构造函数Object可以调用的）
+          * Object.keys()
+          * Object.values()
+          * Object.assign()
+          **/
+
+          // 如下有个对象
+          const o = {name: 'PeiQi', age: 6}
+          // 想要拿到对象里面的属性和值只能用forin
+          for (const k in o) {
+            console.log(k); // 属性
+            console.log(o[k]); // 值
+          }
+
+          /*
+            而现在可以用Object.keys来获取了。
+            作用：Object.keys静态方法获取对象中所有的属性（键）
+          */
+         const keys = Object.keys(o)
+         console.log(keys);
+
+         /*
+            通过Object.values来获取对象中的值
+         */
+        const values = Object.values(o)
+        console.log(values);
+
+        /*
+          Object.assign()静态方法常用于对象拷贝
+          经常用来给对象添加属性
+        */
+        const obj = {}
+        Object.assign(obj, o)
+        console.log(obj);
+
+        // 给对象添加属性
+        Object.assign(o, {gender: 'Female'}) // 可以这样直接给添加
+        console.log(o);
+    </script>
+</body>
+</html>

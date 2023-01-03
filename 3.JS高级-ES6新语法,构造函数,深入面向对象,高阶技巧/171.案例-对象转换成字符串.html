@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 200px;
+            height: 50px;
+            border: 1px solid lightgray;
+            box-shadow: 3px 3px 3px 3px lightgray;
+            color: gray;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: all 1s;
+        }
+
+        .container:hover{
+            transform: rotateX(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <script>
+        let container = document.querySelector('.container')
+        const spec = {size: '40cm*40cm', color: '黑色'}
+        // 需求：请将size和color里面的值拼接为字符串后，写道div标签里面。格式：40cm*40cm/黑色
+        const arr = Object.values(spec)
+        const str = arr.join('/')
+        console.log(str);
+        container.innerHTML = str
+    </script>
+</body>
+</html>

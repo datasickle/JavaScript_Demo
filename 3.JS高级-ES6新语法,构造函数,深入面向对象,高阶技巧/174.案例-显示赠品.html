@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name{
+            width: 150px;
+            box-shadow: 3px 3px 3px 3px lightgray;
+            color: gray;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <p class="name">
+        
+    </p>
+    <script>
+        
+        /**
+         * 请将下面字符串渲染到准备好的p标签内部。
+         * const gift = '50g茶叶,清洗球'
+         **/
+        const gift = '50g茶叶,清洗球,鼠标,键盘'
+        const spans = gift.split(',').map(item => `<span class="tag">【赠品】${item}</span>`).join('')
+        document.querySelector('.name').innerHTML = spans
+    </script>
+</body>
+</html>

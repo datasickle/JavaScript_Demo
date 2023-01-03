@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+    </ul>
+    <script>
+        // 伪数组转换为真数组 Array.from()
+        const lis = document.querySelectorAll('ul li') // 获取到一个伪数组
+        console.log(lis);
+        // 将其转换为一个真数组
+        const newLis = Array.from(lis)
+        console.log(newLis);
+        newLis.pop()
+        console.log(newLis);
+
+    </script>
+</body>
+</html>
