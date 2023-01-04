@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 原型继承有个问题，如下
+         * 我们有一个Person对象
+         **/
+
+         const Person = {
+            eyes: 2,
+            head: 1
+         }
+
+         // 然后有一个Woman构造函数，想要继承Person
+         function Woman(){}
+         // 原型继承，将Woman的prototype原型对象换成Person对象，即可实现继承
+         Woman.prototype = Person
+         // 再将原型对象中的constructor指回构造器本身
+         Woman.prototype.constructor = Woman
+         // 实例化一个nancy对象
+         const nancy = new Woman()
+         // 毫无疑问，实例对象nancy已经继承了Person
+         console.log(nancy);
+         
+         // 可是Woman想要有自己的方法，且Woman的实例对象也要有方法，于是我们给Woman一个baby()方法，将其放到Woman原型对象上
+         Woman.prototype.baby = function(){
+            console.log('baby');
+         }
+
+         // 此时nancy已经拥有了baby方法
+
+         // 我们还有一个Man构造函数，同样原型继承自Person
+         function Man(){}
+         // 同样继承自Person
+         Man.prototype = Person
+         // 再将原型对象中的constructor指回构造器本身
+         Man.prototype.constructor = Man
+         // 实例化一个John对象
+         const John = new Man()
+         // 我们来看看John
+         console.log(John);
+         /*
+            会发现Man的实例对象John居然也有baby()方法，这是为什么呢？
+            我们分明只给Woman的原型对象加了baby()方法，怎么Man的实例对象也有呢？
+            这是因为Woman.prototype和Man.prototype都是Person对象，根据引用类型的特点，
+            他们指向同一个对象，修改其中一种，别的也会受影响
+            而且当Man将原型对象里的constructor重新指向Man之后，Woman原型对象里的constructor也会指向Man，道理同上，
+            两个引用了同一个对象，Man修改了prototype中的constructor属性，本质上是修改了Person的constructor，
+            那么之前Woman修改的就被Man修改的给覆盖了，这也是问题之一。
+         */
+
+         console.log(Person);
+    </script>
+</body>
+</html>

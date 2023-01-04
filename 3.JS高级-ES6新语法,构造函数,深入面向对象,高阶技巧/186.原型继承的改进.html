@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 前文中提到的问题，该如何改进呢？
+         * 使用构造函数就可以解决，构造函数 new 出来的对象 结构一样，但是对象不一样
+         **/
+
+         // 一个Person构造函数
+         function Person(){
+            this.eyes = 2,
+            this.head = 1
+         }
+
+         function Woman(){}
+
+         // 通过原型来继承Person，但是new出来的Person，这样就能避免Person一样的问题了
+         Woman.prototype = new Person()
+         // 再将原型对象中的constructor指回构造器本身
+         Woman.prototype.constructor = Woman
+         // 实例化一个nancy对象
+         const nancy = new Woman()
+         // 毫无疑问，实例对象nancy已经继承了Person
+         console.log(nancy);
+         
+         // 可是Woman想要有自己的方法，且Woman的实例对象也要有方法，于是我们给Woman一个baby()方法，将其放到Woman原型对象上
+         Woman.prototype.baby = function(){
+            console.log('baby');
+         }
+
+         // 我们还有一个Man构造函数，同样原型继承自Person
+         function Man(){}
+         // 同样继承自Person，再new一个新Person，可以避免与Woman的Person一致的问题
+         Man.prototype = new Person()
+         // 再将原型对象中的constructor指回构造器本身
+         Man.prototype.constructor = Man
+         // 实例化一个John对象
+         const John = new Man()
+         // 我们来看看John
+         console.log(John);
+         // 可以发现，之前的两个问题，一并被解决了
+
+    </script>
+</body>
+</html>
