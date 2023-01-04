@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * constructor 构造器/构造函数
+         * 每个原型对象里面都有个constructor属性
+         * 该属性指向原型对象的构造函数，简单理解，就是构造函数的爸爸，构造函数是有爸爸的孩子
+         **/
+
+         function Person(name,age,gender){
+            this.name = name
+            this.age = age
+            this.gender = gender
+         }
+
+         console.log(Person.prototype);
+         console.log(Person.prototype.constructor === Person);// true
+    </script>
+</body>
+</html>

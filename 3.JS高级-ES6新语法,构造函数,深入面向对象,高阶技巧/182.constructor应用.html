@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * constructor属性的应用
+         * 如果有多个对象的方法，我们可以给原型对象采取对象形式赋值
+         * 但这样会覆盖构造函数原型对象原来的内容，这样修改后的原型对象constructor就不再指向当前构造函数了
+         * 此时，我们可以在修改后的原型对象中，添加一个constructor指向原来的构造函数
+         * 
+         **/
+
+         function Person(name,age,gender){
+            this.name = name
+            this.age = age
+            this.gender = gender
+         }
+         // 有多个方法，于是给原型对象用对象形式赋值
+        //  Person.prototype = {
+        //     sing: function(){console.log('唱歌')},
+        //     dance: function(){console.log('跳舞')}
+        //  }
+
+         // 但这样就覆盖了构造函数原型对象原来的内容，于是this的指向就变了，不再是当前构造函数
+         // 注意：通过属性赋值，只有一个方法时，是不会覆盖constructor，也不会改变this指向的
+         console.log(Person.prototype); // 里面中有sing 和 dance这两个方法了，constructor不见了
+         console.log(Person.prototype.constructor); // 指向了Object，因为constructor
+
+
+         /**
+          * constructor没了，那么原型对象就没爹了，这是万万不能的，所以我们应该让constructor指回去
+          * 重新指向创造该原型对象的构造函数
+          **/
+          Person.prototype = {
+            // 重新指回
+            constructor: Person,
+            sing: function(){console.log('唱歌')},
+            dance: function(){console.log('跳舞')}
+         }
+         console.log(Person.prototype); // 里面中有sing，dance和constructor
+         console.log(Person.prototype.constructor);  // 指向了Person构造函数
+    </script>
+</body>
+</html>

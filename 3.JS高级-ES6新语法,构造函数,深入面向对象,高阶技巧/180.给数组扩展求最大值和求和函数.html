@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 需求：给数组扩展求最大值方法和求和方法
+         * 要求任何一个数组都能调用到这两个方法
+         * 那自然就是要写到Array.prototype上了
+         **/
+
+         console.log(Array.prototype);
+         // 最大值
+         Array.prototype.max = function(){
+            // 直接把调用自己的数组对象展开
+            return Math.max(...this)
+         }
+
+        const arr1 = [5,8,9,6]
+        console.log(arr1.max()); // 输出9
+
+        // 求和
+        Array.prototype.sum = function(){
+            return this.reduce((prev, item) => prev + item)
+        }
+
+        const arr2 = [1,2,3,4]
+        console.log(arr2.sum()); 
+    </script>
+</body>
+</html>

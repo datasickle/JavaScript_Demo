@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 构造函数虽然可以轻松的生产大量的对象，但存在一个问题，就是内存浪费
+         **/
+
+         // 如下，有一个名为Person的构造函数，其中有一个叫sayHi()的方法
+         function Person(name,age,gender){
+            this.name = name
+            this.age = age
+            this.gender = gender
+            this.sayHi = function(){
+                console.log('Hi!!!');
+            }
+         }
+         // 我们生成两个人
+         const John = new Person('John', 117, 'Male')
+         const Miku = new Person('Miku', 16, 'Girl')
+
+         // 这两个对象肯定是不相等的
+         console.log(John === Miku); // 输出false
+
+         // 但问题是，他们两个有着一样的方法，都是sayHi，输出也是一样的，可他们方法却不是同一个
+         console.log(John.sayHi === Miku.sayHi);
+
+         // 这就造成了内存浪费，如果有一万个Person的对象，那岂不是有一万个相同的方法，但却不是同一个
+         // 这时候，就用到了原型对象
+    </script>
+</body>
+</html>

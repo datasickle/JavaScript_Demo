@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 构造函数通过原型分配的函数是所有对象所共享的
+         * JS规定，每一个构造函数都有一个prototype属性，指向另一个对象，所以我们也称为原型对象
+         * 这个对象可以挂载函数，对象实例化不会多次创建原型上函数，节约内存
+         * 我们可以把那些不变的方法，直接定义在prototype对象上，这样所有对象的实例就可以共享这些方法
+         * 构造函数和原型对象中的this都指向实例化的对象
+         * 
+         **/
+         function Person(name,age,gender){
+            this.name = name
+            this.age = age
+            this.gender = gender
+            // this.sayHi = function(){
+            //     console.log('Hi!!!');
+            // }
+         }
+         Person.prototype.sayHi = function(){
+            console.log('Hi!!!');
+         }
+
+         // 构造函数的prototype属性就是原型
+         console.log(Person.prototype)
+
+         // 我们生成两个人
+         const John = new Person('John', 117, 'Male')
+         const Miku = new Person('Miku', 16, 'Girl')
+         //再来对比一下他们的sayHi方法，会发现，由于是定义在原型对象身上的，所以这两个实例对象的sayHi方法是一致的
+         console.log(John.sayHi === Miku.sayHi);
+
+         // 结论：公共属性写到构造函数里面，公共方法写到原型对象身上
+    </script>
+</body>
+</html>

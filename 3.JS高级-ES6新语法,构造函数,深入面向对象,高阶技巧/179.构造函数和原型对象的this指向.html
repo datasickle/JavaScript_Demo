@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let that
+        function Person(name,age,gender){
+            that = this
+            this.name = name
+            this.age = age
+            this.gender = gender
+         }
+
+
+        // 我们生成两个人
+        const John = new Person('John', 117, 'Male')
+        console.log(that);// 可以发现this是John这个实例对象
+        
+         Person.prototype.sayHi = function(){
+            console.log('Hi!!!');
+         }
+
+         John.sayHi() // 原型对象的this也肯定指向John，因为是John调用了原型对象上的方法，谁调用this就指向谁
+    </script>
+</body>
+</html>
