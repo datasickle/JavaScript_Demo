@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>面向对象封装消息提示</title>
+  <style>
+    .modal {
+      width: 300px;
+      min-height: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      position: fixed;
+      z-index: 999;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      background-color: #fff;
+      
+    }
+
+    .modal .header {
+      line-height: 40px;
+      padding: 0 10px;
+      position: relative;
+      font-size: 20px;
+    }
+
+    .modal .header i {
+      font-style: normal;
+      color: #999;
+      position: absolute;
+      right: 15px;
+      top: -2px;
+      cursor: pointer;
+    }
+
+    .modal .body {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .modal .footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+
+    .modal .footer a {
+      padding: 3px 8px;
+      background: #ccc;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 2px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    .modal .footer a.submit {
+      background-color: #369;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="delete">删除</button>
+  <button id="login">登录</button>
+
+  <!-- <div class="modal">
+    <div class="header">温馨提示 <i>x</i></div>
+    <div class="body">您没有删除权限操作</div>
+  </div> -->
+
+
+  <script>
+    function Modal(title = 'no title', message = 'no message'){
+      // 放公共部分
+      this.title = title
+      this.message = message
+      // 因为盒子是公共的
+      // 1. 创建盒子
+      this.modalBox = document.createElement('div')
+      // 2.添加类名
+      this.modalBox.className = 'modal'
+      // 3. 填充内容并更换数据
+      this.modalBox.innerHTML = `
+        <div class="header">${this.title} <i>x</i></div>
+        <div class="body">${this.message}</div>
+      `
+      console.log(this.modalBox);
+    }
+
+    Modal.prototype.open = function(){
+      if(!document.querySelector('.modal')){
+      // 打开模态框方法
+            /**
+             * 写到构造函数原型对象身上
+             * 把刚才创建的modalBox添加到页面body标签中
+             * open打开的本质就是把创建标签添加到页面中
+             * 点击按钮，实例化对象，传入响应的参数，并执行open方法
+             **/
+            // 哪个modal实例调用该函数，this就指向谁
+            document.body.appendChild(this.modalBox)
+            // 获取x号，然后调用关闭方法
+            this.modalBox.querySelector('i').addEventListener('click', ()=>{
+              // 原型对象中，this指向一直是实例对象，而箭头函数没有this，它一直用的是上一级的this，上一级的this指向实例对象m
+              this.close()
+            })
+      }
+      
+    }
+
+    Modal.prototype.close = function(){
+      // 关闭模态框方法
+      document.body.removeChild(this.modalBox)
+    }
+
+    // 按钮点击
+    document.querySelector('#delete').addEventListener('click', ()=>{
+      const m =  new Modal('警告', '您没有删除权限！')
+      // m调用了open，m的modalBox属性就是模态框，所以上面的this.modalBox就是把当前的模态框渲染到页面中
+      m.open()
+    })
+  </script>
+</body>
+
+</html>
