@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          width: 500px;
+          height: 500px;
+          background-color: #ccc;
+          color: #fff;
+          text-align: center;
+          font-size: 100px;
+        }
+      </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        /**
+         * 需求：鼠标在盒子上移动，鼠标停止之后，500ms后里面的数字就会变化+1
+         * 利用防抖的方式实现。
+         * 核心思路：
+         * 利用定时器实现，当鼠标滑过，判断有没有定时器，还有就清楚，以最后一次滑动为准开启定时器
+         **/
+
+         /**
+          * 写一个防抖函数debounce，来控制这个操作函数（mouseMove）
+          * 防抖函数传递2个参数，第一个参数mouseMove函数，第二个参数，指定时间500ms
+          **/
+        const box = document.querySelector('.box')
+        let i = 1
+
+        function mouseMove(){
+          box.innerHTML = ++i
+        }
+
+         function debounce(fn, t){
+            let timeId
+            return function(){
+                // 如果有定时器，就清除
+                if(timeId){
+                    clearTimeout(timeId)
+                }
+                // 开启定时器 200ms
+                timeId = setTimeout(function(){
+                    fn()
+                },t)
+            }
+         }
+
+         box.addEventListener('mousemove', debounce(mouseMove, 200))
+    </script>
+</body>
+</html>

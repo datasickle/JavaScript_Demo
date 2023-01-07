@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+      /**
+         * 要求：鼠标在盒子上移动，里面的数字就会变化+1
+         * 利用节流地方式，鼠标经过，500ms数字，才显示
+         * 核心思路：
+         * 利用时间相减：移动后的时间 - 刚开始移动的时间 >= 500ms 我才去执行mousemove函数
+         * 1.写一个节流函数throttle，来控制这个操作函数（mousemove），500ms之后才去执行这个函数
+         * 2.节流函数传递2个参数，第一个参数mousemove函数，第二个参数指定时间500ms
+         * 3.鼠标移动事件，里面写的是节流函数
+         * 4.声明一个起始时间 startTime = 0
+         * 5.但是截留函数因为里面写的是函数名 throttle(mouseMove, 500)，是调用函数，无法再次调用执行，
+         *  所以需要在节流函数里面写return函数 这样可以多次执行
+         * 6.记录当前时间 now = Date.now()
+         * 7.进行判断 如果大于等于500ms，则执行函数，但是千万不要忘记让起始时间 = 现在时间
+         **/
+        const box = document.querySelector('.box')
+        let i = 1
+
+        function mouseMove(){
+          box.innerHTML = ++i
+        }
+
+        function throttle(fn, t){
+          // 页面一打开，该函数被调用，于是初始化开始时间为0
+          let startTime = 0
+          return function(){
+            // 当鼠标执行移动事件，则该返回函数被执行，则记录移动时间
+            let now = Date.now()
+            // 判断如果大于等于500， 则执行+1函数
+            if (now - startTime >= t){
+              // 调用函数
+              fn()
+              // 函数执行完后立马重新计算时间 起始时间 = 现在时间
+              startTime = now
+            }
+            
+          }
+        }
+
+        box.addEventListener('mousemove', throttle(mouseMove, 500))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 引入lodash -->
+    <script src="./plugins/lodash.min.js"></script>
+    <script>
+        /**
+         * js库lodash里面的cloneDeep实现深拷贝
+         **/
+
+         const obj = {
+            uname: 'person',
+            age: 17,
+            hobby: ['乒乓球', '足球'],
+            family: {
+                mom: 'Lucy',
+                dad: 'John'
+            }
+         }
+
+        const o =  _.cloneDeep(obj)
+        console.log('---------------------------------这是o-----------------------------------');
+        console.log(o);
+        console.log('---------------------------------这是obj-----------------------------------');
+        console.log(obj);
+        console.log('---------------------------------修改o-----------------------------------');
+        o.hobby[0] = '篮球'
+        console.log(o);
+        console.log('---------------------------------这是obj-----------------------------------');
+        console.log(obj);
+
+        /**
+         * 可以发现修改新对象对原对象没有影响
+         **/
+
+    </script>
+</body>
+</html>

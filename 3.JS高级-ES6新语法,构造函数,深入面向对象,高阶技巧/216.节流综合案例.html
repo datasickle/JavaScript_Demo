@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="never" />
+  <title>综合案例</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+  
+    }
+
+    .video video {
+      width: 100%;
+      padding: 20px 0;
+      
+    }
+
+    .elevator {
+      position: fixed;
+      top: 280px;
+      right: 20px;
+      z-index: 999;
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      width: 60px;
+    }
+
+    .elevator a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+      color: #999;
+    }
+
+    .elevator a.active {
+      color: #1286ff;
+    }
+
+    .outline {
+      padding-bottom: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="http://pip.itcast.cn">
+        <img src="https://pip.itcast.cn/img/logo_v3.29b9ba72.png" alt="" />
+      </a>
+    </div>
+    <div class="video">
+      <video src="https://v.itheima.net/LapADhV6.mp4" controls preload="auto"></video>
+    </div>
+    <div class="elevator">
+      <a href="javascript:;" data-ref="video">视频介绍</a>
+      <a href="javascript:;" data-ref="intro">课程简介</a>
+      <a href="javascript:;" data-ref="outline">评论列表</a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    /**
+     * 认识两个事件
+     * 1.ontimeupdate 事件在视频/音频(audio/video)当前的播放位置发生改变时触发
+     * 2.onloadeddata 事件在当前帧的数据加载完成且还没有足够的数据播放视频/音频的下一帧时触发
+     **/
+    //对视频进行操作，获取视频
+    const video = document.querySelector('video')
+    // ontimeupdate触发频次太高了，我们让他一秒钟触发一次，那么就需要节流了
+    video.ontimeupdate = _.throttle(() => {
+      // 获取当前时间，存入本地存储
+      localStorage.setItem('currentTime', video.currentTime)
+    }, 1000)
+
+    // 打开页面，就从本地存储中取出记录的事件，赋值给video当前时间
+    video.onloadeddata = function(){
+      video.currentTime = localStorage.getItem('currentTime') || 0
+    }
+    
+    /**
+     * 思路：
+     * 1. 在ontimeupdaye事件触发的时候，每隔一秒钟，旧纪录当前时间到本地存储
+     * 2.下次打开页面，onloadeddata事件触发，就可以从本地存储取出时间，让视频从取出的时间播放，如果没有就默认为0s
+     * 3.获取当前时间video.currentTime
+     **/
+
+  </script>
+</body>
+
+</html>

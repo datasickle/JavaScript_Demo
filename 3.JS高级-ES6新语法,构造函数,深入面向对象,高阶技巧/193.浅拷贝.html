@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 要解决前文中的问题，就要用到拷贝
+         * 1.浅拷贝
+         * 2.深拷贝
+         **/
+
+         /**
+          * 首先浅拷贝和深拷贝只针对引用类型
+          * 浅拷贝：拷贝的是地址
+          * 常见方法：
+          * 1.拷贝对象：Object.assgin() / 展开运算符 {...obj} 拷贝对象
+          * 2.拷贝数组：Array.prototype.concat() 或者 [...arr]
+          **/
+
+          const obj = {
+            uanme: 'John',
+            age: 117
+         }
+
+         // 使用展开运算符进行浅拷贝
+         const o = {...obj}
+         // 修改o对象的属性
+         o.gender = 'Male'
+         console.log(o)
+         console.log(obj)
+         // 可以发现并不会影响到原来的对象
+
+         // 使用Object.assgin()进行浅拷贝
+         // 可以发现也不会修改原来对象
+         const newObj = {}
+         Object.assign(newObj, obj)
+         newObj.gender = 'FeMale'
+         console.log(newObj);
+         console.log(obj);
+         /**
+          * 浅拷贝还是有问题，简单的对象还可以，遇到复杂的就不行了
+          * 如下我们有个对象Person
+          **/
+         const person = {
+            uname: 'person',
+            age: 17,
+            family: {
+                mom: 'Lucy',
+                dad: 'John'
+            }
+         }
+
+         const people = {}
+         Object.assign(people,person)
+         people.gender = 'boy'
+         people.family.mom = 'nancy'
+         /*
+            问题出现了，当我修改了people里面的都西昂family的mom属性时，person中family里的mom属性也被修改了
+            这可就不好了，内层对象只拷贝地址，而不像外层一样拷贝值。当里面还有对象时，
+            拷贝的就是对象的地址，于是我们修改的话，也会把原来的修改掉
+            总结：简单数据类型拷贝值，引用数据类型拷贝地址
+         */
+         console.log(people);
+         console.log(person);
+         
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * this指向
+         *  普通函数：谁调用该函数，this就指向谁，没有明确的调用者时，指向window，严格模式下值为undefined
+         *  箭头函数：箭头函数中的this与普通函数完全不同，也不受调用方式的影响，事实上箭头函数中并不存在this！
+         *  1.箭头函数会默认帮我们绑定外层this的值，所以在箭头函数中this的值和外层的this时一样的。
+         *  2.箭头函数中的this引用的就是最近作用域中的this
+         *  3.向外层作用域中，一层一层查找this，直到找到有this的定义的那个作用域为止
+         *  开发中，操作DOM对象时，如果要用到this，建议写普通函数。
+         *  面向对象中的构造函数也不建议使用箭头函数，因为其中的this指向实例对象，要使用箭头函数，就没有this了。
+         *  但在要使用上层this的情况下，箭头函数还是非常好用的。
+         * 改变this
+         **/
+    </script>
+</body>
+</html>

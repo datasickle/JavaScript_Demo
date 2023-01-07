@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 怎么解决前文浅拷贝遇到的问题呢？
+         * 那肯定得用到深拷贝了。
+         * 首先，无论是浅拷贝还是深拷贝都只针对引用数据类型。
+         * 深拷贝：拷贝的是对象，不是地址。
+         * 常见实现方法：
+         *  1.通过递归实现深拷贝
+         *  2.lodash/cloneDeep
+         *  3.通过JSON.stringify()实现
+         **/
+
+         /*
+            递归函数
+            如果一个函数在内部调用其本身，那么该函数就是递归函数
+                简单理解：函数内部自己调用自己，该函数就是递归函数
+                递归函数的作用跟循环效果类似
+                由于递归很容易发生“栈溢出”错误(stack overflow)，所以必须要加推出条件return
+                function fn() {
+                    fn()
+                }
+                fn()
+         */
+
+         // 递归函数实现类似for循环
+        let i = 1
+        function fn(){
+            console.log(`这是第${i}次`);
+            if(i >= 6){
+                return
+            }
+            i++
+            fn()
+        }
+
+        fn()
+    </script>
+</body>
+</html>

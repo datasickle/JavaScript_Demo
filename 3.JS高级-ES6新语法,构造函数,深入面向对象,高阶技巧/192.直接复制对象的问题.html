@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 开发中，我们经常需要复制一个对象
+         * 
+         **/
+
+         // 我们有如下一个obj对象
+         const obj = {
+            uanme: 'John',
+            age: 117
+         }
+
+         // 将其赋值给o
+         const o = obj
+         console.log(o);
+         // 但是直接复制会有一系列问题，如下我们相对o进行操作
+         o.gender = 'Male'
+         console.log(o);
+         // 会发现原来的对象obj也被修改了
+         console.log(obj);
+         // 那么如何解决上述问题呢
+    </script>
+</body>
+</html>
